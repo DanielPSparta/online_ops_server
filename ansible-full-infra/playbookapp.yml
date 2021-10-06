@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+
+    - name: Pulling a docker Image of Calculator
+      docker_image:
+        name: danielsparta/online_ops
+        source: pull
+
+    - name: Copy over Cert file for the server
+      copy:
+        src: /home/kali/cyber/projects/online_ops/app/cert/
+        dest: .
+
+    - name: Starting an Docker image of Calculator
+      docker_container:
+        name: danielsparta_online_ops_container_1
+        image: danielsparta/online_ops
+        ports:
+          - "5000:5000"
+        state: started
+        volumes:
+          - ./cert:/cert

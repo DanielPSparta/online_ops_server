@@ -1,0 +1,70 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Updating the apt
+      apt: update_cache=yes
+
+    - name: Install aptitude
+      apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+    - name: Installed Required Packages for Docker
+      apt: name={{ item }} state=latest update_cache=yes force_apt_get=yes
+      loop: [ 'apt-transport-https' , 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools' ]
+
+    - name: Adding the GPG Key for Docker
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Adding Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu bionic stable
+        state: present
+
+    - name: Updating the apt
+      apt: update_cache=yes
+
+    - name: Installing Docker-ce
+      apt: name=docker-ce state=latest
+
+    - name: Installing a Python Package for Docker
+      pip:
+        name: docker
+
+    - name: Adding the current user to Docker Group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Pulling a docker Image
+      docker_image:
+        name: hello-world
+        source: pull
+
+    - name: Starting an Docker image
+      docker_container:
+        name: hello_world_container_1
+        image: hello-world
+        state: started
+
+    - name: Copy cert directory to the server
+      copy:
+        src: "{{ playbook_dir }}/../cert"
+        dest: /home/ubuntu/
+        owner: ubuntu
+        group: ubuntu
+        mode: 0400
+
+    - name: Creating Secure_rest_api_calculator_container
+      docker_container:
+        name: danielsparta_online_ops_container_1
+        image: danielsparta/online_ops
+        state: started
+        container_default_behavior: compatibility
+        published_ports:
+          - "443:5000"
+        volumes:
+          - /home/ubuntu/cert:/cert
