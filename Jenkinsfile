@@ -2,7 +2,7 @@ pipeline {
 
  environment {
    PROJECT_DIR = "/app"
-   REGISTRY = "danielsparta/online_ops"
+   REGISTRY = "danielsparta/online_ops" + ":" + "$BUILD_NUMBER"
    DOCKER_CREDENTIALS = "docker_auth"
    DOCKER_IMAGE = ""
  }
