@@ -20,6 +20,14 @@ pipeline {
        git 'https://github.com/DanielPSparta/online_ops_server.git'
      }
    }
+
+   stage('Build image'){
+     steps {
+       script {
+         DOCKER_IMAGE = docker.build REGISTRY
+       }
+     }
+   }
  }
 
 }
