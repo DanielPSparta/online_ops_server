@@ -26,12 +26,13 @@ class CalculatorClass:
 
 
     def divide(self):
-        
+
         try:
             num3 = self.num1 /self.num2
         except ZeroDivisionError:
             print(ZeroDivisionError)
-            return print("Not able to divide by zero")
+            print("Not able to divide by zero")
+            return None
 
         return num3
 #--------------------------------------------------------RESULT RETURN-------------------------------------------------------------------
