@@ -9,6 +9,8 @@ def test_add():
 def test_subtract():
     calculatorObject = cal.CalculatorClass(1, 2)
     assert calculatorObject.subtract() == -1, "Problem in subtract function"
+    calculatorObject = cal.CalculatorClass(3.8, 2.3)
+    assert calculatorObject.subtract() == 1.5, "Problem in subtract function"
 
 def test_multiply():
     calculatorObject = cal.CalculatorClass(1, 2)
