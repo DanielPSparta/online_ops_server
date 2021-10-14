@@ -61,3 +61,18 @@ class CalculatorClass:
         result_list.append(d)
 
         return result_list                  # returns results as a list
+
+
+
+    def process(self,operation):
+
+        if operation == "+":
+            return CalculatorClass.add(self)
+        elif operation == "-":
+            return CalculatorClass.subtract(self)
+        elif operation == "*":
+            return CalculatorClass.multiply(self)
+        elif operation == "/":
+            return CalculatorClass.divide(self)
+        else:
+            return "Operation isn't supported"

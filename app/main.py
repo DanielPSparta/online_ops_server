@@ -1,4 +1,4 @@
-from flask import Flask, make_response, request, render_template
+from flask import Flask, make_response, request, render_template, redirect, jsonify
 from random import random         #get random numbers
 import jwt
 import datetime
@@ -41,10 +41,15 @@ def index_page():
         resp.set_cookie('user_id', str(user_id))        #sets a cookie on the user attached to the response
         return resp
 
-@flask_app.route('/login', methods = ['POST'])      #login page
+@flask_app.route('/login', methods = ['POST','GET'])      #login page
 def login_page():
     #need to render the login.html page
     return render_template('login.html')
+
+@flask_app.route('/index')
+def index2_page():
+    #need to render the login.html page
+    return render_template('index.html')
 
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
@@ -82,19 +87,49 @@ def authenticate_users():
         return render_template('login.html')
 
 
+@flask_app.route('/calculator', methods = ['GET','POST'])
+def calculator_get():
+    isUserLoggedIn = False
+    if 'token' in request.cookies: #if there is a token in cookies return true
+        isUserLoggedIn = verify_token(request.cookies['token'])
+    if isUserLoggedIn:  #if there is a token go here
+        return render_template('caltemplate.html')
+    else:  # if no token in cookies go here
+        resp = make_response(redirect('/login'))
+        return resp
+
+
 @flask_app.route('/results', methods = ['POST']) #authpage get to here form login
 def results_users():
     data = request.form   #retreive data from the post from the login page
     num1 = float(data['number1'])       # store username and password from html
     num2 = float(data['number2'])
+    operation = request.form.get('operation')
     calculatorObject = cal.CalculatorClass(num1, num2)            #makes a calculator class object which contains number 1 and number 2
-    result = calculatorObject.checklist()
-    add,sub,mul,divide = result[2],result[3],result[4],result[5]                               #makes a list of results to use
-    resp = make_response(render_template('results.html', number1 = num1, number2 = num2, a = add,s = sub,m = mul,d = divide ))
+
+    #all operations
+    ##result = calculatorObject.checklist()
+    ##add,sub,mul,divide = result[2],result[3],result[4],result[5]                               #makes a list of results to use
+    #resp = make_response(render_template('results.html', number1 = num1, number2 = num2, a = add,s = sub,m = mul,d = divide ))
+
+    #singular operation
+    resulting = calculatorObject.process(operation)
+    resp = make_response(render_template('results2.html',number1 = num1, number2 = num2, operation =operation, result = resulting))
 
     return resp
 
-
+@flask_app.route('/calculator2', methods = ['POST'])
+def calculate2_post2():
+    number_1 = request.form.get('number1', type = int)
+    number_2 = request.form.get('number2', type = int)
+    operation = request.form.get('operation')
+    calculatorObject = cal.CalculatorClass(number_1, number_2)
+    result = calculatorObject.process(operation)
+    print(result)
+    response_data = {
+    'data' : result
+    }
+    return make_response(jsonify(response_data))
 
 
 

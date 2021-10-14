@@ -1,10 +1,55 @@
+
 <html>
+<head>
+  <meta charset="utf-8">
+  <title>Calculator page</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script tpy="text/javascript" src="/static/js/calculator.js"> </script>
+</head>
   <body style="background-color:powderblue;">
     <h1> Calculator page </h1>
+    <h3> Protected by username and password</h3>
+    <p1> Takes you to another page for the results</p1>
     <form action = '/results' method = "POST">
+      <label for="">Number 1</label>
       <input type = 'number' name='number1' />
+      <select class="form-control" name="operation" id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <label for="">Number 2</label>
       <input type = 'number' name='number2' />
       <input type = 'submit' value='Calculate' />
+
+    </form>
+
+
+
+
+
+    <hr>
+    <br>
+    <h2>A secure calculator using java script methods</h2>
+    <form id="calcForm">
+      <label for="">Number 1</label>
+      <input type = 'number' name='number1' />
+      <select class="form-control" name="operation" id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <label for="">Number 2</label>
+      <input type = 'number' name='number2' />
+
+      <label for="">=</label>
+      <label id="resultInput"></label>
+
+      <br>
+      <input type = 'submit' value='Calculate' />
+
     </form>
   </body>
 
