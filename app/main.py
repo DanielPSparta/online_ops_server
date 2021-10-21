@@ -84,7 +84,7 @@ def authenticate_users():
         #make response to resend
         resp = make_response(render_template('authpage.html', foo=42))
         #token set to a cookie for responce
-        resp.set_cookie('token', user_token)
+        resp.set_cookie('token', user_token, max_age=606024*2, httponly=True, secure=True, samesite='Strict')
         return resp   #retreive data from the post from the login page
     else:
         return render_template('login.html')
