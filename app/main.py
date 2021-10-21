@@ -38,7 +38,7 @@ def index_page():
         user_id = random()
         print(f"User ID: {user_id}")
         resp = make_response(render_template('mainpage.html', foo=42))
-        resp.set_cookie('user_id', str(user_id))        #sets a cookie on the user attached to the response
+        resp.set_cookie('user_id', str(user_id), httponly=True, secure=True , samesite='Strict')        #sets a cookie on the user attached to the response
         return resp
 
 @flask_app.route('/login', methods = ['POST','GET'])      #login page
