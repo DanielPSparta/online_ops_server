@@ -14,9 +14,7 @@ def make_table():
 def table_insert(user,password):
     with closing(sqlite3.connect("data.db")) as connection:
         with closing(connection.cursor()) as cursor:
-            command = f"INSERT INTO user_db (username, password) VALUES ('{user}','{password}');"
-            print(command)
-            cursor.execute(command)
+            cursor.execute("INSERT INTO user_db (username, password) VALUES (?,?);", (str(user), str(password),))
             connection.commit()
 
 def show_results():
@@ -30,14 +28,15 @@ def show_results():
                 print(item)
 
 def check_user_in_db(user,password):
+
+
     conn = sqlite3.connect('data.db')
-    command = f"SELECT * FROM user_db WHERE username = '{user}'"
-    x = conn.execute(command).fetchone()
+    x = conn.execute("SELECT * FROM user_db WHERE username = ?", (str(user),)).fetchone()
     if x:
         print("username found")
         print(x)
-        command = f"SELECT * FROM user_db WHERE username = '{user}' AND password = '{password}'"
-        if conn.execute(command).fetchone():
+
+        if conn.execute("SELECT * FROM user_db WHERE username = ? AND password = ?", (str(user), str(password),)).fetchone():
             print("Username and password match found")
             return True
         else:
@@ -48,9 +47,10 @@ def check_user_in_db(user,password):
         return False
 
 def check_username_in_db(user,password):
+
     conn = sqlite3.connect('data.db')
-    command = f"SELECT * FROM user_db WHERE username = '{user}'"
-    x = conn.execute(command).fetchone()
+
+    x = conn.execute("SELECT * FROM user_db WHERE username = ?", (str(user),)).fetchone()
     if x:
         print("user already has this name")
         return True

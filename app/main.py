@@ -59,11 +59,14 @@ def addlogin_page():
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
     data = request.form   #retreive data from the post from the login page
+
     username = data['username']       # store username and password from html
     password = data['password']
+
     check = sq.check_username_in_db(username,password)
     if check == True:
         return render_template('addlogin.html', reason = 'Someone already has this username')
+
     else:
         sq.table_insert(username,password)
         return render_template('accountcreated.html')
@@ -131,8 +134,17 @@ def calculate2_post2():
     }
     return make_response(jsonify(response_data))
 
+@flask_app.route('/logout', methods = ['POST','GET'])
+def logout():
+    resp = make_response(render_template('login.html'))
+    resp.delete_cookie('token', 'token')        #sets a cookie on the user attached to the response
+    return resp
 
-
+@flask_app.after_request
+def apply_caching(response):
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers['X-Content-Type-Options'] = "nosniff"
+    return response
 #-------------------------------------run server -------------------------------------------
 if __name__ == "__main__":
     print("This is a secure calculator Server")
