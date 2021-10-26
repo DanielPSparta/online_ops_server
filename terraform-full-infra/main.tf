@@ -18,7 +18,8 @@ terraform {
 }
 
 
-
+# @component CalcApp:VPC (#vpc)
+# @connects #vpc to #igw with network traffic
 resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
   cidr_block       = "10.105.0.0/16"
   tags = {
@@ -28,7 +29,9 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 
 
 
-
+# @component CalcApp:VPC:Internet_gateway (#igw)
+# @connects #igw to #vpc with network traffic
+# @connects #igw to #rt with network traffic
 resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -37,6 +40,8 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   }
 }
 
+# @component CalcApp:VPC:Routetable (#rt)
+# @connects #rt to #igw with network traffic
 resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -50,7 +55,9 @@ resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
 }
 
 
-
+# @component CalcApp:VPC:SubnetApp (#subnetapp)
+# @connects #naclapp to #subnetapp with network traffic
+# @connects #subnetapp to #naclapp with network traffic
 resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.1.0/24"
@@ -59,6 +66,9 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   }
 }
 
+# @component CalcApp:VPC:SubnetSQL (#subnetsql)
+# @connects #naclsql to #subnetsql with network traffic
+# @connects #subnetsql to #naclsql with network traffic
 resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.2.0/24"
@@ -67,6 +77,9 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   }
 }
 
+# @component CalcApp:VPC:Subnetbastion (#subnetbastion)
+# @connects #naclbastion to #subnetbastion with network traffic
+# @connects #subnetbastion to #naclbastion with network traffic
 resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.3.0/24"
@@ -89,7 +102,9 @@ resource "aws_route_table_association" "cyber94_full_dpook_rt_association_bastio
 }
 
 
-
+# @component CalcApp:VPC:NAClApp (#naclapp)
+# @connects #rt to #naclapp with network traffic
+# @connects #naclapp to #rt with network traffic
 resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
   subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]
@@ -196,6 +211,9 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   }
 }
 
+# @component CalcApp:VPC:NAClApp (#naclbastion)
+# @connects #rt to #naclbastion with network traffic
+# @connects #naclbastion to #rt with network traffic
 resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -285,6 +303,9 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
   }
 }
 
+# @component CalcApp:VPC:NAClApp (#naclsql)
+# @connects #rt to #naclsql with network traffic
+# @connects #naclsql to #rt with network traffic
 resource "aws_network_acl" "cyber94_full_dpook_nacl_db_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
   subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_db_tf.id]
@@ -331,7 +352,9 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_db_tf" {
 }
 
 
-
+# @component CalcApp:Web:Security_group_app (#sg_app)
+# @connects #sg_app to #subnetapp with Network traffic
+# @connects #subnetapp to #sg_app with Network traffic
 resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   name = "cyber94_full_dpook_sg_app"
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -382,6 +405,9 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   }
 }
 
+# @component CalcApp:Web:Security_group_SQL_server (#sg_sql)
+# @connects #sg_sql to #subnetsql with Network traffic
+# @connects #subnetsql to #sg_sql with Network traffic
 resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 
   name = "cyber94_full_dpook_sg_db"
@@ -407,6 +433,9 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
   }
 }
 
+# @component CalcApp:Web:Security_group_bastion_server (#sg_bastion)
+# @connects #sg_bastion to #subnetbastion with Network traffic
+# @connects #subnetbastion to #sg_bastion with Network traffic
 resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
   name = "cyber94_full_dpook_sg_bastion"
@@ -455,6 +484,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
 
 
+# @component CalcApp:Web:Server (#app_server)
+# @connects #sg_app to #app_server with Network
+# @connects #app_server to #sg_app with Network
+# @connects #app_server to #sql_server with SQL request
 
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
@@ -520,6 +553,11 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
   } */
 }
 
+# @component CalcApp:SQL:Server (#sql_server)
+
+# @connects #bastion_server to #sql_server with SSH_Responce
+# @connects #sql_server to #web_server with SQL responce
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
   ami = "ami-0d1c7c4de1f4cdc9a"
@@ -532,6 +570,11 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
     Name = "cyber94_full_dpook_server_db"
   }
 }
+
+# @component CalcApp:bastion:Server (#bastion_server)
+# @connects #sg_bastion to #bastion_server with Network
+# @connects #bastion_server to #sg_bastion with Network
+# @connects #sql_server to #bastion_server with SSH_Request
 
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id

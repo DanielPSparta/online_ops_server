@@ -1,0 +1,307 @@
+{
+  "components": {
+    "#guest": {
+      "id": "#guest",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "External:Guest",
+      "description": "",
+      "paths": [
+        [
+          "External"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#index": {
+      "id": "#index",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Server:Index",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web",
+          "Server"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#vpc": {
+      "id": "#vpc",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#igw": {
+      "id": "#igw",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:Internet_gateway",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#rt": {
+      "id": "#rt",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:Routetable",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#subnetapp": {
+      "id": "#subnetapp",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:SubnetApp",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "VPC"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#naclapp": {
+      "id": "#naclapp",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:NAClApp",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#subnetSQL": {
+      "id": "#subnetSQL",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:SubnetSQL",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "VPC"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#naclSQL": {
+      "id": "#naclSQL",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:NAClApp",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#subnetbastion": {
+      "id": "#subnetbastion",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:Subnetbastion",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "VPC"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#naclbastion": {
+      "id": "#naclbastion",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:NAClApp",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#sg_app": {
+      "id": "#sg_app",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Security_group_app",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#sg_SQL": {
+      "id": "#sg_SQL",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Security_group_SQL_server",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#sg_bastion": {
+      "id": "#sg_bastion",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Security_group_bastion_server",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#app_server": {
+      "id": "#app_server",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Server",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#SQL_server": {
+      "id": "#SQL_server",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:SQL:Server",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "SQL"
+        ]
+      ],
+      "custom": {}
+    },
+    "#bastion_server": {
+      "id": "#bastion_server",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:bastion:Server",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "bastion"
+        ]
+      ],
+      "custom": {}
+    },
+    "#web_server": {
+      "id": "#web_server",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "",
+      "description": "",
+      "paths": [
+        []
+      ],
+      "custom": {}
+    },
+    "#subnetsql": {
+      "id": "#subnetsql",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:SubnetSQL",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "VPC"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#naclsql": {
+      "id": "#naclsql",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:VPC:NAClApp",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "VPC"
+        ]
+      ],
+      "custom": {}
+    },
+    "#sg_sql": {
+      "id": "#sg_sql",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:Web:Security_group_SQL_server",
+      "description": "",
+      "paths": [
+        [
+          "CalcApp",
+          "Web"
+        ],
+        []
+      ],
+      "custom": {}
+    },
+    "#sql_server": {
+      "id": "#sql_server",
+      "run_id": "cb177e4e478b4008aae97092de596204",
+      "name": "CalcApp:SQL:Server",
+      "description": "",
+      "paths": [
+        [],
+        [
+          "CalcApp",
+          "SQL"
+        ]
+      ],
+      "custom": {}
+    }
+  }
+}

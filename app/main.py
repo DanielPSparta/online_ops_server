@@ -7,6 +7,9 @@ import sqlite_functions as sq
 #-------------------------------------secret key variables------------------------------------
 SECRET_KEY = "C7E2F9D46E9"
 
+# @component External:Guest (#guest)
+
+
 #--------------------------------------functions for the server-------------------------------------
 def create_token(username, password, user_id):
     validity = datetime.datetime.utcnow() + datetime.timedelta(days=15)      #get current date + 15 days
@@ -26,9 +29,12 @@ def verify_token(token):
 
  #------------------------------------server opening ---------------------------------------
 flask_app = Flask(__name__)
+# @component CalcApp:Web:Server:Index (#index)
+# @connects #guest to #index with HTTPs-GET
 
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
+    print(request.headers)
     isUserLoggedIn = False
     if 'token' in request.cookies: #if there is a token in cookies return true
         isUserLoggedIn = verify_token(request.cookies['token'])
