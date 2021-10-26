@@ -7,7 +7,7 @@ import sqlite_functions as sq
 #-------------------------------------secret key variables------------------------------------
 SECRET_KEY = "C7E2F9D46E9"
 
-# @component External:Guest (#guest)
+# @component Internet:Guest (#guest)
 
 
 #--------------------------------------functions for the server-------------------------------------
@@ -29,8 +29,11 @@ def verify_token(token):
 
  #------------------------------------server opening ---------------------------------------
 flask_app = Flask(__name__)
-# @component CalcApp:Web:Server:Index (#index)
+# @component CalcApp:Web_Server:Index (#index)
+# @connects #app_server to #index with Hosting
+
 # @connects #guest to #index with HTTPs-GET
+# @connects #index to #guest with HTTPs-GET
 
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
@@ -47,6 +50,9 @@ def index_page():
         resp.set_cookie('user_id', str(user_id), httponly=True, secure=True , samesite='Strict')        #sets a cookie on the user attached to the response
         return resp
 
+# @component CalcApp:Web_Server:Login (#login)
+# @connects #index with #login with HTTPs-POST
+# @connects #login with #index with HTTPs-POST
 @flask_app.route('/login', methods = ['POST','GET'])      #login page
 def login_page():
     #need to render the login.html page
@@ -57,11 +63,17 @@ def index2_page():
     #need to render the login.html page
     return render_template('index.html')
 
+# @component CalcApp:Web_Server:Accountcreation (#ac)
+# @connects #ac with #acd with HTTPs-POST
+# @connects #login with #ac with HTTPs-POST
+
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
     #need to render the login.html page
     return render_template('addlogin.html')
 
+# @component CalcApp:Web_Server:Accountcreated (#acd)
+# @connects #acd with #login with HTTPs-POST
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
     data = request.form   #retreive data from the post from the login page
@@ -77,7 +89,9 @@ def accountcreated_page():
         sq.table_insert(username,password)
         return render_template('accountcreated.html')
 
-
+# @component CalcApp:Web_Server:Authenticated (#auth)
+# @connects #login to #auth with HTTPs-POST
+# @connects #auth to #index with HTTPS-GET
 @flask_app.route('/authenticate', methods = ['POST']) #authpage get to here form login
 def authenticate_users():
     data = request.form   #retreive data from the post from the login page
@@ -139,7 +153,8 @@ def calculate2_post2():
     'data' : result
     }
     return make_response(jsonify(response_data))
-
+# @component CalcApp:Web_Server:logout (#logout)
+# @connects #index to #logout with HTTPs-POST
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))
