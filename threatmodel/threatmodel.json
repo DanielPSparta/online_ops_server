@@ -8,7 +8,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #login against ##sqlinjection with #sanitise",
-        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -179,7 +179,7 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover",
-        "code": "# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\n",
+        "code": "# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -192,7 +192,33 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #index to tampering manipulation with #csrf",
-        "code": "# @exposes #index to tampering manipulation with #csrf\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n",
+        "code": "# @exposes #index to tampering manipulation with #csrf\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#tampering_manipulation",
+      "component": "#results",
+      "details": "#csrf",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #results to tampering manipulation with #csrf",
+        "code": "# @exposes #results to tampering manipulation with #csrf\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#tampering_manipulation",
+      "component": "#authenticated",
+      "details": "#csrf",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #authenticated to tampering manipulation with #csrf",
+        "code": "# @exposes #authenticated to tampering manipulation with #csrf\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -257,7 +283,72 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #login to privilege escalation with #brute",
-        "code": "# @exposes #login to privilege escalation with #brute\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "code": "# @exposes #login to privilege escalation with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#index",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #index to information disclosure with #brute",
+        "code": "# @exposes #index to information disclosure with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#logout",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #logout to information disclosure with #brute",
+        "code": "# @exposes #logout to information disclosure with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#ac",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #ac to information disclosure with #brute",
+        "code": "# @exposes #ac to information disclosure with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#auser",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #auser to information disclosure with #brute",
+        "code": "# @exposes #auser to information disclosure with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#sql_server",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #sql_server to information disclosure with #brute",
+        "code": "# @exposes #sql_server to information disclosure with #brute\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -411,7 +502,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index with #login with HTTPs-POST",
-        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -425,7 +516,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login with #index with HTTPs-POST",
-        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -439,7 +530,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #guest to #login with HTTPs-POST",
-        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -453,7 +544,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login to #guest with HTTPs-POST",
-        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -1175,5 +1266,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "d53456f137d445baa443d25c4ce1f23b"
+  "run_id": "90741822070d433498a8a67ebba13b45"
 }

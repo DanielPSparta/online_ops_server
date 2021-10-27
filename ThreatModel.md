@@ -61,7 +61,7 @@ def verify_token(token):
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -74,8 +74,36 @@ def verify_token(token):
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
-def index_page():
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Tampering manipulation against CalcApp:Web_Server:Results
+#csrf
+
+```
+# @exposes #results to tampering manipulation with #csrf
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Tampering manipulation against 
+#csrf
+
+```
+# @exposes #authenticated to tampering manipulation with #csrf
+
+
+
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -143,9 +171,79 @@ def index_page():
 # @exposes #login to privilege escalation with #brute
 
 
+def login_page():
+    return render_template('login.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:Index
+#brute
+
+```
+# @exposes #index to information disclosure with #brute
+
 
 def login_page():
     return render_template('login.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:logout
+#brute
+
+```
+# @exposes #logout to information disclosure with #brute
+
+
+def login_page():
+    return render_template('login.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:Accountcreation
+#brute
+
+```
+# @exposes #ac to information disclosure with #brute
+
+
+def login_page():
+    return render_template('login.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against Internet:AuthenticatedUser
+#brute
+
+```
+# @exposes #auser to information disclosure with #brute
+
+
+def login_page():
+    return render_template('login.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against Jenkins:TerraformAWS:SQL_Server
+#brute
+
+```
+# @exposes #sql_server to information disclosure with #brute
+
+
+def login_page():
+    return render_template('login.html')
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -223,8 +321,8 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 
 
 
-
 def login_page():
+    return render_template('login.html')
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -454,7 +552,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -468,7 +566,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -482,7 +580,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -496,7 +594,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -1232,6 +1330,10 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## CalcApp:Web_Server:Index
 
+## CalcApp:Web_Server:Results
+
+## 
+
 ## CalcApp:Web_Server:logout
 
 ## CalcApp:Web_Server:Accountcreation
@@ -1243,8 +1345,6 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## CalcApp:Web_Server:Accountcreated
 
 ## CalcApp:Web_Server:Authenticated
-
-## CalcApp:Web_Server:Results
 
 ## TerraformAWS:VPC
 

@@ -55,6 +55,10 @@ flask_app = Flask(__name__)
 
 # @threat Absence of anti-CSRF tokens (#csfr)
 # @exposes #index to tampering manipulation with #csrf
+# @exposes #results to tampering manipulation with #csrf
+# @exposes #authenticated to tampering manipulation with #csrf
+
+
 
 # @threat No cache control header set (#cache)
 # @exposes #index to information disclosure with #cache
@@ -90,7 +94,11 @@ def index_page():
 
 # @threat Brute force attack (#brute)
 # @exposes #login to privilege escalation with #brute
-
+# @exposes #index to information disclosure with #brute
+# @exposes #logout to information disclosure with #brute
+# @exposes #ac to information disclosure with #brute
+# @exposes #auser to information disclosure with #brute
+# @exposes #sql_server to information disclosure with #brute
 
 
 @flask_app.route('/login', methods = ['POST','GET'])      #login page
