@@ -307,14 +307,28 @@
   "connections": [
     {
       "source_component": "#app_server",
-      "destination_component": "#index",
+      "destination_component": "#container",
       "direction": "to",
       "details": "Hosting",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #app_server to #index with Hosting",
-        "code": "# @connects #app_server to #index with Hosting\n\n\n\n\n\n",
+        "annotation": "@connects #app_server to #container with Hosting",
+        "code": "# @connects #app_server to #container with Hosting\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#container",
+      "destination_component": "#index",
+      "direction": "to",
+      "details": "Running",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #container to #index with Running",
+        "code": "# @connects #container to #index with Running\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -924,5 +938,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "ffabceec8c6e4406873aeb5640213e2d"
+  "run_id": "262137325b0f4c4caa5bd6245e55e224"
 }

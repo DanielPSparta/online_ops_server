@@ -347,11 +347,25 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 # Connections
 
-## TerraformAWS:Web_Server To CalcApp:Web_Server:Index
+## TerraformAWS:Web_Server To Dockerhub:Container
 Hosting
 
 ```
-# @connects #app_server to #index with Hosting
+# @connects #app_server to #container with Hosting
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Dockerhub:Container To CalcApp:Web_Server:Index
+Running
+
+```
+# @connects #container to #index with Running
 
 
 
@@ -983,6 +997,8 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## CalcApp:Web_Server:Accountcreation
 
 ## TerraformAWS:SQL_Server
+
+## Dockerhub:Container
 
 ## CalcApp:Web_Server:Accountcreated
 
