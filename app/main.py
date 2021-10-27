@@ -52,6 +52,9 @@ flask_app = Flask(__name__)
 
 # @threat Buffer overflow (#buffover)
 # @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+# @exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+# @exposes #login to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
 
 # @threat Absence of anti-CSRF tokens (#csfr)
 # @exposes #index to tampering manipulation with #csrf
@@ -90,7 +93,10 @@ def index_page():
 
 # @control Sanitise SQL inputs (#sanitise)
 # @threat SQL injection (#sqlinjection)
-# @mitigates #login against ##sqlinjection with #sanitise
+# @mitigates #login against #sqlinjection with #sanitise
+# @mitigates #sql_server against #sqlinjection with #sanitise
+# @mitigates #index against #sqlinjection with #sanitise
+
 
 # @threat Brute force attack (#brute)
 # @exposes #login to privilege escalation with #brute
@@ -116,6 +122,7 @@ def index2_page():
 # @connects #login with #ac with HTTPs-POST
 # @connects #guest to #ac with HTTPs-POST
 # @connects #ac to #guest with HTTPs-POST
+# @mitigates #ac against ##sqlinjection with #sanitise
 
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():

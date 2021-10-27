@@ -7,8 +7,47 @@
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@mitigates #login against ##sqlinjection with #sanitise",
-        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "annotation": "@mitigates #login against #sqlinjection with #sanitise",
+        "code": "# @mitigates #login against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "control": "#sanitise",
+      "threat": "#sqlinjection",
+      "component": "#sql_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #sql_server against #sqlinjection with #sanitise",
+        "code": "# @mitigates #sql_server against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "control": "#sanitise",
+      "threat": "#sqlinjection",
+      "component": "#index",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #index against #sqlinjection with #sanitise",
+        "code": "# @mitigates #index against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "control": "#sanitise",
+      "threat": "#sqlinjection",
+      "component": "#ac",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #ac against ##sqlinjection with #sanitise",
+        "code": "# @mitigates #ac against ##sqlinjection with #sanitise\n\n@flask_app.route('/addlogin', methods = ['POST'])\ndef addlogin_page():\n    return render_template('addlogin.html')\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -180,6 +219,32 @@
       "source": {
         "annotation": "@exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover",
         "code": "# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error",
+      "component": "#app_server",
+      "details": "#buffover",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover",
+        "code": "# @exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error",
+      "component": "#login",
+      "details": "#buffover",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #login to overwriting memory of backend web processes. throws sevrer 500 error with #buffover",
+        "code": "# @exposes #login to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -502,7 +567,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index with #login with HTTPs-POST",
-        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\n\ndef login_page():\n",
+        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -516,7 +581,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login with #index with HTTPs-POST",
-        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\ndef login_page():\n",
+        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -530,7 +595,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #guest to #login with HTTPs-POST",
-        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\ndef login_page():\n",
+        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -544,7 +609,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login to #guest with HTTPs-POST",
-        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\ndef login_page():\n",
+        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -1266,5 +1331,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "90741822070d433498a8a67ebba13b45"
+  "run_id": "50603d363cde4f66b0b9d2334416447c"
 }

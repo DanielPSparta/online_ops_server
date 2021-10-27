@@ -66,6 +66,34 @@ def verify_token(token):
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Overwriting memory of backend web processes. throws sevrer 500 error against Jenkins:TerraformAWS:Web_Server
+#buffover
+
+```
+# @exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Overwriting memory of backend web processes. throws sevrer 500 error against CalcApp:Web_Server:Login
+#buffover
+
+```
+# @exposes #login to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Tampering manipulation against CalcApp:Web_Server:Index
 #csrf
 
@@ -317,12 +345,54 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 
 
 ```
-# @mitigates #login against ##sqlinjection with #sanitise
+# @mitigates #login against #sqlinjection with #sanitise
+
 
 
 
 def login_page():
-    return render_template('login.html')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## ##sqlinjection against Jenkins:TerraformAWS:SQL_Server mitigated by Sanitise sql inputs
+
+
+```
+# @mitigates #sql_server against #sqlinjection with #sanitise
+
+
+
+
+def login_page():
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## ##sqlinjection against CalcApp:Web_Server:Index mitigated by Sanitise sql inputs
+
+
+```
+# @mitigates #index against #sqlinjection with #sanitise
+
+
+
+
+def login_page():
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## ##sqlinjection against CalcApp:Web_Server:Accountcreation mitigated by Sanitise sql inputs
+
+
+```
+# @mitigates #ac against ##sqlinjection with #sanitise
+
+@flask_app.route('/addlogin', methods = ['POST'])
+def addlogin_page():
+    return render_template('addlogin.html')
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -552,7 +622,7 @@ HTTPs-POST
 
 
 
-def login_page():
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -566,7 +636,7 @@ HTTPs-POST
 
 
 
-def login_page():
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -580,7 +650,7 @@ HTTPs-POST
 
 
 
-def login_page():
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -594,7 +664,7 @@ HTTPs-POST
 
 
 
-def login_page():
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -1318,6 +1388,12 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## CalcApp:Web_Server:Login
 
+## Jenkins:TerraformAWS:SQL_Server
+
+## CalcApp:Web_Server:Index
+
+## CalcApp:Web_Server:Accountcreation
+
 ## Internet:Developer_Computer
 
 ## Jenkins:TerraformAWS:Web_Server
@@ -1328,17 +1404,11 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## Internet:AuthenticatedUser
 
-## CalcApp:Web_Server:Index
-
 ## CalcApp:Web_Server:Results
 
 ## 
 
 ## CalcApp:Web_Server:logout
-
-## CalcApp:Web_Server:Accountcreation
-
-## Jenkins:TerraformAWS:SQL_Server
 
 ## Developer_Computer:Jenkins:Dockerhub:Container
 
