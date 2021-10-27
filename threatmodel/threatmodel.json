@@ -1234,12 +1234,12 @@
       "source_component": "#sg_sql",
       "destination_component": "#sql_server",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH,3306",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_sql to #sql_server with Network traffic",
-        "code": "# @connects #sg_sql to #sql_server with Network traffic\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
+        "annotation": "@connects #sg_sql to #sql_server with SSH,3306",
+        "code": "# @connects #sg_sql to #sql_server with SSH,3306\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1248,12 +1248,12 @@
       "source_component": "#sql_server",
       "destination_component": "#sg_sql",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH 3306",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sql_server to #sg_sql with Network traffic",
-        "code": "# @connects #sql_server to #sg_sql with Network traffic\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
+        "annotation": "@connects #sql_server to #sg_sql with SSH 3306",
+        "code": "# @connects #sql_server to #sg_sql with SSH 3306\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1331,5 +1331,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "50603d363cde4f66b0b9d2334416447c"
+  "run_id": "3b575d60a11a42c89636fbee56f2672d"
 }

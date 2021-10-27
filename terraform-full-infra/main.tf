@@ -591,8 +591,8 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 }
 
 # @component Jenkins:TerraformAWS:SQL_Server (#sql_server)
-# @connects #sg_sql to #sql_server with Network traffic
-# @connects #sql_server to #sg_sql with Network traffic
+# @connects #sg_sql to #sql_server with SSH,3306
+# @connects #sql_server to #sg_sql with SSH 3306
 
 # @connects #naclsql to #naclbastion with SSH_Responce
 # @connects #naclsql to #naclapp with SQL Responce

@@ -1286,10 +1286,10 @@ SQL request
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## Jenkins:TerraformAWS:VPC:Security_group_SQL_server To Jenkins:TerraformAWS:SQL_Server
-Network traffic
+SSH,3306
 
 ```
-# @connects #sg_sql to #sql_server with Network traffic
+# @connects #sg_sql to #sql_server with SSH,3306
 
 
 
@@ -1300,10 +1300,10 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## Jenkins:TerraformAWS:SQL_Server To Jenkins:TerraformAWS:VPC:Security_group_SQL_server
-Network traffic
+SSH 3306
 
 ```
-# @connects #sql_server to #sg_sql with Network traffic
+# @connects #sql_server to #sg_sql with SSH 3306
 
 
 
