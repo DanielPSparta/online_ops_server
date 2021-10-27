@@ -1,3 +1,53 @@
 {
-  "controls": {}
+  "controls": {
+    "#sanitise": {
+      "id": "#sanitise",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "Sanitise SQL inputs",
+      "description": "",
+      "custom": {}
+    },
+    "#idp": {
+      "id": "#idp",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "Intusion Detection/Prevention",
+      "description": "",
+      "custom": {}
+    },
+    "#ip": {
+      "id": "#ip",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "NACL and security group IP check",
+      "description": "",
+      "custom": {}
+    },
+    "#devprotect": {
+      "id": "#devprotect",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "Strong passwords and security on developer pc",
+      "description": "",
+      "custom": {}
+    },
+    "#devtest": {
+      "id": "#devtest",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "Jenkins test code before deployment and integration",
+      "description": "",
+      "custom": {}
+    },
+    "#portsniffdefense": {
+      "id": "#portsniffdefense",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "Only listen on needed ports",
+      "description": "",
+      "custom": {}
+    },
+    "#ubuntuprotect": {
+      "id": "#ubuntuprotect",
+      "run_id": "719d05b0b50d431da1d27b0a856d6180",
+      "name": "only allow SSH connections to ubuntu user from specific ip",
+      "description": "",
+      "custom": {}
+    }
+  }
 }

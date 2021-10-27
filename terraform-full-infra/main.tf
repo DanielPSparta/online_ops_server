@@ -17,11 +17,27 @@ terraform {
   }
 }
 
+# @component Internet:Developer_Computer (#dev)
+
+# @control Strong passwords and security on developer pc (#devprotect)
+# @threat Intruder on developer pc, elevation of privilege (#devintruder)
+# @mitigates #dev against #devintruder with #devprotect
+
+# @control Jenkins test code before deployment and integration (#devtest)
+# @threat uploading broken code (#devbroke)
+# @mitigates #dev against #devbroke with #devtest
+
+# @control Strong passwords and security on developer pc (#devprotect)
+# @threat Intruder on developer pc, tampering with source code (#devtamper)
+# @mitigates #dev against #devtamper with #devprotect
+
+
+
 
 # @component TerraformAWS:VPC (#vpc)
-# @connects #vpc to #guest with network traffic
-# @connects #guest to #vpc with network traffic
-# @connects #vpc to #igw with network traffic
+# @connects #vpc to #dev with SSH,HTTP,HTTPs,Ephemeral
+# @connects #dev to #vpc with SSH,HTTP,HTTPs,Ephemeral
+# @connects #vpc to #igw with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
   cidr_block       = "10.105.0.0/16"
   tags = {
@@ -32,8 +48,8 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 
 
 # @component TerraformAWS:VPC:Internet_gateway (#igw)
-# @connects #igw to #vpc with network traffic
-# @connects #igw to #rt with network traffic
+# @connects #igw to #vpc with SSH,HTTP,HTTPs,Ephemeral
+# @connects #igw to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -43,7 +59,7 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
 }
 
 # @component TerraformAWS:VPC:Routetable (#rt)
-# @connects #rt to #igw with network traffic
+# @connects #rt to #igw with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -58,8 +74,8 @@ resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
 
 
 # @component TerraformAWS:VPC:SubnetApp (#subnetapp)
-# @connects #naclapp to #subnetapp with network traffic
-# @connects #subnetapp to #naclapp with network traffic
+# @connects #naclapp to #subnetapp with SSH,HTTPs,Ephemeral
+# @connects #subnetapp to #naclapp with SSH,HTTPs,Ephemeral
 resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.1.0/24"
@@ -69,8 +85,8 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
 }
 
 # @component TerraformAWS:VPC:SubnetSQL (#subnetsql)
-# @connects #naclsql to #subnetsql with network traffic
-# @connects #subnetsql to #naclsql with network traffic
+# @connects #naclsql to #subnetsql with SSH,SQL
+# @connects #subnetsql to #naclsql with SSH,SQL
 resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.2.0/24"
@@ -80,8 +96,8 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
 }
 
 # @component TerraformAWS:VPC:Subnetbastion (#subnetbastion)
-# @connects #naclbastion to #subnetbastion with network traffic
-# @connects #subnetbastion to #naclbastion with network traffic
+# @connects #naclbastion to #subnetbastion with SSH
+# @connects #subnetbastion to #naclbastion with SSH
 resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.3.0/24"
@@ -105,8 +121,8 @@ resource "aws_route_table_association" "cyber94_full_dpook_rt_association_bastio
 
 
 # @component TerraformAWS:VPC:SubnetApp:NAClApp (#naclapp)
-# @connects #rt to #naclapp with network traffic
-# @connects #naclapp to #rt with network traffic
+# @connects #rt to #naclapp with SSH,HTTP,HTTPs,Ephemeral
+# @connects #naclapp to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
   subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]
@@ -214,8 +230,8 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
 }
 
 # @component TerraformAWS:VPC:Subnetbastion:NAClBastion (#naclbastion)
-# @connects #rt to #naclbastion with network traffic
-# @connects #naclbastion to #rt with network traffic
+# @connects #rt to #naclbastion with SSH
+# @connects #naclbastion to #rt with SSH
 resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -354,8 +370,8 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_db_tf" {
 
 
 # @component TerraformAWS:VPC:Security_group_app (#sg_app)
-# @connects #sg_app to #subnetapp with Network traffic
-# @connects #subnetapp to #sg_app with Network traffic
+# @connects #sg_app to #subnetapp with SSH,HTTP,HTTPs,Ephemeral,SQL
+# @connects #subnetapp to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   name = "cyber94_full_dpook_sg_app"
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -407,8 +423,8 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
 }
 
 # @component TerraformAWS:VPC:Security_group_SQL_server (#sg_sql)
-# @connects #sg_sql to #subnetsql with Network traffic
-# @connects #subnetsql to #sg_sql with Network traffic
+# @connects #sg_sql to #subnetsql with SSH,SQL
+# @connects #subnetsql to #sg_sql with SSH,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 
   name = "cyber94_full_dpook_sg_db"
@@ -435,8 +451,8 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 }
 
 # @component TerraformAWS:VPC:Security_group_bastion_server (#sg_bastion)
-# @connects #sg_bastion to #subnetbastion with Network traffic
-# @connects #subnetbastion to #sg_bastion with Network traffic
+# @connects #sg_bastion to #subnetbastion with SSH
+# @connects #subnetbastion to #sg_bastion with SSH
 resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
   name = "cyber94_full_dpook_sg_bastion"
@@ -486,10 +502,26 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
 
 # @component TerraformAWS:Web_Server (#app_server)
-# @connects #sg_app to #app_server with Network
-# @connects #app_server to #sg_app with Network
+# @connects #sg_app to #app_server with SSH,HTTP,HTTPs,Ephemeral,SQL
+# @connects #app_server to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 
 # @connects #naclapp to #naclsql with SQL request
+
+
+# @threat DDOS (#ddos)
+# @exposes #app_server to Out of service with not using IDP
+
+# @control Only listen on needed ports (#portsniffdefense)
+# @threat Port sniffing for open ports (#portsniff)
+# @mitigates #app_server against #portsniff with #portsniffdefense
+
+# @control only allow SSH connections to ubuntu user from specific ip (#ubuntuprotect)
+# @threat access to ubuntu allows access to database (#ubuntuaccess)
+# @mitigates #app_server against #ubuntuaccess with #ubuntuprotect
+
+# @control Use proxy server to access all servers in vpc (#infraprotect)
+# @threat Network mapping of cloud servers (#networkmap)
+# @mitigates #app_server against #networkmap with #infraprotect
 
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
@@ -562,6 +594,10 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 # @connects #naclsql to #naclbastion with SSH_Responce
 # @connects #naclsql to #naclapp with SQL Responce
 
+# @threat credentials exposed in plain text (#credential)
+# @exposes #sql_server to credential exposure with credentials stored unhashed
+
+#sql_server_server against #networkmap with #infraprotect
 
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
@@ -577,11 +613,17 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 }
 
 # @component TerraformAWS:bastion_Server (#bastion_server)
-# @connects #sg_bastion to #bastion_server with Network
-# @connects #bastion_server to #sg_bastion with Network
+# @connects #sg_bastion to #bastion_server with SSH
+# @connects #bastion_server to #sg_bastion with SSH
 
 # @connects #naclbastion to #naclsql with SSH_Request
 
+# @control NACL and security group IP check (#ip)
+# @threat intruder SSH connection (#ssh)
+# @mitigates #bastion_server against #ssh with #ip
+
+# @mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect
+@mitigates #bastion_server against #networkmap with #infraprotect
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
   ami = "ami-0943382e114f188e8"

@@ -8,7 +8,8 @@ import sqlite_functions as sq
 SECRET_KEY = "C7E2F9D46E9"
 
 # @component Internet:Guest (#guest)
-
+# @threat Out of Scope (#out)
+# @exposes #guest to Out of scope with cannot change
 
 #--------------------------------------functions for the server-------------------------------------
 def create_token(username, password, user_id):
@@ -35,6 +36,7 @@ flask_app = Flask(__name__)
 # @connects #guest to #index with HTTPs-GET
 # @connects #index to #guest with HTTPs-GET
 
+
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
     print(request.headers)
@@ -53,6 +55,16 @@ def index_page():
 # @component CalcApp:Web_Server:Login (#login)
 # @connects #index with #login with HTTPs-POST
 # @connects #login with #index with HTTPs-POST
+
+# @control Sanitise SQL inputs (#sanitise)
+# @threat SQL injection (#sqlinjection)
+# @mitigates #login against ##sqlinjection with #sanitise
+
+# @threat Brute force attack (#brute)
+# @exposes #login to privilege escalation with #brute
+
+
+
 @flask_app.route('/login', methods = ['POST','GET'])      #login page
 def login_page():
     #need to render the login.html page

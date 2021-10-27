@@ -10,6 +10,48 @@ A threatspec project.
 
 # Exposures
 
+## Out of scope against Internet:Guest
+Cannot change
+
+```
+# @exposes #guest to Out of scope with cannot change
+
+def create_token(username, password, user_id):
+    return token
+
+def verify_token(token):
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Out of service against TerraformAWS:Web_Server
+Not using idp
+
+```
+# @exposes #app_server to Out of service with not using IDP
+
+
+
+resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Credential exposure against TerraformAWS:SQL_Server
+Credentials stored unhashed
+
+```
+# @exposes #sql_server to credential exposure with credentials stored unhashed
+
+resource "aws_instance" "cyber94_full_dpook_db_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
+  ami = "ami-0d1c7c4de1f4cdc9a"
+  instance_type = "t2.micro"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
 
 # Acceptances
 
@@ -18,6 +60,118 @@ A threatspec project.
 
 
 # Mitigations
+
+## ##sqlinjection against CalcApp:Web_Server:Login mitigated by Sanitise sql inputs
+
+
+```
+# @mitigates #login against ##sqlinjection with #sanitise
+
+def login_page():
+    return render_template('login.html')
+
+@flask_app.route('/index')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Intruder on developer pc, elevation of privilege against Internet:Developer_Computer mitigated by Strong passwords and security on developer pc
+
+
+```
+# @mitigates #dev against #devintruder with #devprotect
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Uploading broken code against Internet:Developer_Computer mitigated by Jenkins test code before deployment and integration
+
+
+```
+# @mitigates #dev against #devbroke with #devtest
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Intruder on developer pc, tampering with source code against Internet:Developer_Computer mitigated by Strong passwords and security on developer pc
+
+
+```
+# @mitigates #dev against #devtamper with #devprotect
+
+
+
+
+resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Port sniffing for open ports against TerraformAWS:Web_Server mitigated by Only listen on needed ports
+
+
+```
+# @mitigates #app_server against #portsniff with #portsniffdefense
+
+
+resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+  ami = "ami-0943382e114f188e8"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Access to ubuntu allows access to database against TerraformAWS:Web_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
+
+
+```
+# @mitigates #app_server against #ubuntuaccess with #ubuntuprotect
+
+resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Intruder ssh connection against TerraformAWS:bastion_Server mitigated by Nacl and security group ip check
+
+
+```
+# @mitigates #bastion_server against #ssh with #ip
+
+resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Access to ubuntu allows access to database against TerraformAWS:bastion_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
+
+
+```
+# @mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect
+resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
+  key_name = "cyber94-dpook"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 
 # Reviews
@@ -32,9 +186,9 @@ Hosting
 # @connects #app_server to #index with Hosting
 
 
+
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
-    print(request.headers)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -45,10 +199,10 @@ HTTPs-GET
 ```
 # @connects #guest to #index with HTTPs-GET
 
+
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
     print(request.headers)
-    isUserLoggedIn = False
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -59,10 +213,10 @@ HTTPs-GET
 ```
 # @connects #index to #guest with HTTPs-GET
 
+
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
     print(request.headers)
-    isUserLoggedIn = False
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -72,11 +226,11 @@ HTTPs-POST
 
 ```
 # @connects #index with #login with HTTPs-POST
+
+
+
 def login_page():
     return render_template('login.html')
-
-@flask_app.route('/index')
-def index2_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -86,11 +240,11 @@ HTTPs-POST
 
 ```
 # @connects #login with #index with HTTPs-POST
+
+
+
 def login_page():
     return render_template('login.html')
-
-@flask_app.route('/index')
-def index2_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -179,11 +333,11 @@ def logout():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## TerraformAWS:VPC To Internet:Guest
-network traffic
+## TerraformAWS:VPC To Internet:Developer_Computer
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #vpc to #guest with network traffic
+# @connects #vpc to #dev with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
   cidr_block       = "10.105.0.0/16"
   tags = {
@@ -193,11 +347,11 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Internet:Guest To TerraformAWS:VPC
-network traffic
+## Internet:Developer_Computer To TerraformAWS:VPC
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #guest to #vpc with network traffic
+# @connects #dev to #vpc with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
   cidr_block       = "10.105.0.0/16"
   tags = {
@@ -208,10 +362,10 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC To TerraformAWS:VPC:Internet_gateway
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #vpc to #igw with network traffic
+# @connects #vpc to #igw with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
   cidr_block       = "10.105.0.0/16"
   tags = {
@@ -222,10 +376,10 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Internet_gateway To TerraformAWS:VPC
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #igw to #vpc with network traffic
+# @connects #igw to #vpc with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -236,10 +390,10 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Internet_gateway To TerraformAWS:VPC:Routetable
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #igw to #rt with network traffic
+# @connects #igw to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -250,10 +404,10 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:Internet_gateway
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #rt to #igw with network traffic
+# @connects #rt to #igw with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
 
@@ -264,10 +418,10 @@ resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetApp:NAClApp To TerraformAWS:VPC:SubnetApp
-network traffic
+SSH,HTTPs,Ephemeral
 
 ```
-# @connects #naclapp to #subnetapp with network traffic
+# @connects #naclapp to #subnetapp with SSH,HTTPs,Ephemeral
 resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.1.0/24"
@@ -278,10 +432,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetApp To TerraformAWS:VPC:SubnetApp:NAClApp
-network traffic
+SSH,HTTPs,Ephemeral
 
 ```
-# @connects #subnetapp to #naclapp with network traffic
+# @connects #subnetapp to #naclapp with SSH,HTTPs,Ephemeral
 resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.1.0/24"
@@ -292,10 +446,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetSQL:NAClSQL To TerraformAWS:VPC:SubnetSQL
-network traffic
+SSH,SQL
 
 ```
-# @connects #naclsql to #subnetsql with network traffic
+# @connects #naclsql to #subnetsql with SSH,SQL
 resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.2.0/24"
@@ -306,10 +460,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetSQL To TerraformAWS:VPC:SubnetSQL:NAClSQL
-network traffic
+SSH,SQL
 
 ```
-# @connects #subnetsql to #naclsql with network traffic
+# @connects #subnetsql to #naclsql with SSH,SQL
 resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.2.0/24"
@@ -320,10 +474,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Subnetbastion:NAClBastion To TerraformAWS:VPC:Subnetbastion
-network traffic
+SSH
 
 ```
-# @connects #naclbastion to #subnetbastion with network traffic
+# @connects #naclbastion to #subnetbastion with SSH
 resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.3.0/24"
@@ -334,10 +488,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Subnetbastion To TerraformAWS:VPC:Subnetbastion:NAClBastion
-network traffic
+SSH
 
 ```
-# @connects #subnetbastion to #naclbastion with network traffic
+# @connects #subnetbastion to #naclbastion with SSH
 resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
   vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id
   cidr_block = "10.105.3.0/24"
@@ -348,10 +502,10 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:SubnetApp:NAClApp
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #rt to #naclapp with network traffic
+# @connects #rt to #naclapp with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
   subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]
@@ -362,10 +516,10 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetApp:NAClApp To TerraformAWS:VPC:Routetable
-network traffic
+SSH,HTTP,HTTPs,Ephemeral
 
 ```
-# @connects #naclapp to #rt with network traffic
+# @connects #naclapp to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
   subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]
@@ -376,10 +530,10 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:Subnetbastion:NAClBastion
-network traffic
+SSH
 
 ```
-# @connects #rt to #naclbastion with network traffic
+# @connects #rt to #naclbastion with SSH
 resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -390,10 +544,10 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Subnetbastion:NAClBastion To TerraformAWS:VPC:Routetable
-network traffic
+SSH
 
 ```
-# @connects #naclbastion to #rt with network traffic
+# @connects #naclbastion to #rt with SSH
 resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -404,10 +558,10 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Security_group_app To TerraformAWS:VPC:SubnetApp
-Network traffic
+SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
-# @connects #sg_app to #subnetapp with Network traffic
+# @connects #sg_app to #subnetapp with SSH,HTTP,HTTPs,Ephemeral,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   name = "cyber94_full_dpook_sg_app"
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -418,10 +572,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetApp To TerraformAWS:VPC:Security_group_app
-Network traffic
+SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
-# @connects #subnetapp to #sg_app with Network traffic
+# @connects #subnetapp to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   name = "cyber94_full_dpook_sg_app"
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -432,10 +586,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Security_group_SQL_server To TerraformAWS:VPC:SubnetSQL
-Network traffic
+SSH,SQL
 
 ```
-# @connects #sg_sql to #subnetsql with Network traffic
+# @connects #sg_sql to #subnetsql with SSH,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 
   name = "cyber94_full_dpook_sg_db"
@@ -446,10 +600,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:SubnetSQL To TerraformAWS:VPC:Security_group_SQL_server
-Network traffic
+SSH,SQL
 
 ```
-# @connects #subnetsql to #sg_sql with Network traffic
+# @connects #subnetsql to #sg_sql with SSH,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 
   name = "cyber94_full_dpook_sg_db"
@@ -460,10 +614,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Security_group_bastion_server To TerraformAWS:VPC:Subnetbastion
-Network traffic
+SSH
 
 ```
-# @connects #sg_bastion to #subnetbastion with Network traffic
+# @connects #sg_bastion to #subnetbastion with SSH
 resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
   name = "cyber94_full_dpook_sg_bastion"
@@ -474,10 +628,10 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Subnetbastion To TerraformAWS:VPC:Security_group_bastion_server
-Network traffic
+SSH
 
 ```
-# @connects #subnetbastion to #sg_bastion with Network traffic
+# @connects #subnetbastion to #sg_bastion with SSH
 resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
   name = "cyber94_full_dpook_sg_bastion"
@@ -488,29 +642,29 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Security_group_app To TerraformAWS:Web_Server
-Network
+SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
-# @connects #sg_app to #app_server with Network
+# @connects #sg_app to #app_server with SSH,HTTP,HTTPs,Ephemeral,SQL
 
 
-resource "aws_instance" "cyber94_full_dpook_app_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
-  ami = "ami-0943382e114f188e8"
+
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:Web_Server To TerraformAWS:VPC:Security_group_app
-Network
+SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
-# @connects #app_server to #sg_app with Network
+# @connects #app_server to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 
 
-resource "aws_instance" "cyber94_full_dpook_app_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
-  ami = "ami-0943382e114f188e8"
+
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -521,10 +675,10 @@ SQL request
 ```
 # @connects #naclapp to #naclsql with SQL request
 
-resource "aws_instance" "cyber94_full_dpook_app_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
-  ami = "ami-0943382e114f188e8"
-  instance_type = "t2.micro"
+
+
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -586,29 +740,29 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:VPC:Security_group_bastion_server To TerraformAWS:bastion_Server
-Network
+SSH
 
 ```
-# @connects #sg_bastion to #bastion_server with Network
+# @connects #sg_bastion to #bastion_server with SSH
+
 
 
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
 ## TerraformAWS:bastion_Server To TerraformAWS:VPC:Security_group_bastion_server
-Network
+SSH
 
 ```
-# @connects #bastion_server to #sg_bastion with Network
+# @connects #bastion_server to #sg_bastion with SSH
+
 
 
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -619,10 +773,10 @@ SSH_Request
 ```
 # @connects #naclbastion to #naclsql with SSH_Request
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
   ami = "ami-0943382e114f188e8"
-  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -630,13 +784,19 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 # Components
 
+## CalcApp:Web_Server:Login
+
+## Internet:Developer_Computer
+
 ## TerraformAWS:Web_Server
 
-## CalcApp:Web_Server:Index
+## TerraformAWS:bastion_Server
 
 ## Internet:Guest
 
-## CalcApp:Web_Server:Login
+## TerraformAWS:SQL_Server
+
+## CalcApp:Web_Server:Index
 
 ## CalcApp:Web_Server:Accountcreation
 
@@ -670,12 +830,50 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## TerraformAWS:VPC:Security_group_bastion_server
 
-## TerraformAWS:SQL_Server
-
-## TerraformAWS:bastion_Server
-
 
 # Threats
 
+## ##sqlinjection
+
+
+## Intruder on developer pc, elevation of privilege
+
+
+## Uploading broken code
+
+
+## Intruder on developer pc, tampering with source code
+
+
+## Port sniffing for open ports
+
+
+## Access to ubuntu allows access to database
+
+
+## Intruder ssh connection
+
+
+## Out of scope
+
+
+## Out of service
+
+
+## Credential exposure
+
+
 
 # Controls
+
+## Sanitise sql inputs
+
+## Strong passwords and security on developer pc
+
+## Jenkins test code before deployment and integration
+
+## Only listen on needed ports
+
+## Only allow ssh connections to ubuntu user from specific ip
+
+## Nacl and security group ip check

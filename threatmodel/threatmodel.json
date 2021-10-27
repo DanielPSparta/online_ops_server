@@ -1,6 +1,151 @@
 {
-  "mitigations": [],
-  "exposures": [],
+  "mitigations": [
+    {
+      "control": "#sanitise",
+      "threat": "#sqlinjection",
+      "component": "#login",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #login against ##sqlinjection with #sanitise",
+        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\ndef login_page():\n    return render_template('login.html')\n\n@flask_app.route('/index')\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "control": "#devprotect",
+      "threat": "#devintruder",
+      "component": "#dev",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #dev against #devintruder with #devprotect",
+        "code": "# @mitigates #dev against #devintruder with #devprotect\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#devtest",
+      "threat": "#devbroke",
+      "component": "#dev",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #dev against #devbroke with #devtest",
+        "code": "# @mitigates #dev against #devbroke with #devtest\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#devprotect",
+      "threat": "#devtamper",
+      "component": "#dev",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #dev against #devtamper with #devprotect",
+        "code": "# @mitigates #dev against #devtamper with #devprotect\n\n\n\n\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#portsniffdefense",
+      "threat": "#portsniff",
+      "component": "#app_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #app_server against #portsniff with #portsniffdefense",
+        "code": "# @mitigates #app_server against #portsniff with #portsniffdefense\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#ubuntuprotect",
+      "threat": "#ubuntuaccess",
+      "component": "#app_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #app_server against #ubuntuaccess with #ubuntuprotect",
+        "code": "# @mitigates #app_server against #ubuntuaccess with #ubuntuprotect\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#ip",
+      "threat": "#ssh",
+      "component": "#bastion_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #bastion_server against #ssh with #ip",
+        "code": "# @mitigates #bastion_server against #ssh with #ip\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#ubuntuprotect",
+      "threat": "#ubuntuaccess",
+      "component": "#bastion_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect",
+        "code": "# @mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n  key_name = \"cyber94-dpook\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    }
+  ],
+  "exposures": [
+    {
+      "threat": "#out_of_scope",
+      "component": "#guest",
+      "details": "cannot change",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #guest to Out of scope with cannot change",
+        "code": "# @exposes #guest to Out of scope with cannot change\n\ndef create_token(username, password, user_id):\n    return token\n\ndef verify_token(token):\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#out_of_service",
+      "component": "#app_server",
+      "details": "not using IDP",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #app_server to Out of service with not using IDP",
+        "code": "# @exposes #app_server to Out of service with not using IDP\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#credential_exposure",
+      "component": "#sql_server",
+      "details": "credentials stored unhashed",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #sql_server to credential exposure with credentials stored unhashed",
+        "code": "# @exposes #sql_server to credential exposure with credentials stored unhashed\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n  instance_type = \"t2.micro\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    }
+  ],
   "transfers": [],
   "acceptances": [],
   "connections": [
@@ -13,7 +158,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #app_server to #index with Hosting",
-        "code": "# @connects #app_server to #index with Hosting\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
+        "code": "# @connects #app_server to #index with Hosting\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -27,7 +172,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #guest to #index with HTTPs-GET",
-        "code": "# @connects #guest to #index with HTTPs-GET\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n    isUserLoggedIn = False\n",
+        "code": "# @connects #guest to #index with HTTPs-GET\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -41,7 +186,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index to #guest with HTTPs-GET",
-        "code": "# @connects #index to #guest with HTTPs-GET\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n    isUserLoggedIn = False\n",
+        "code": "# @connects #index to #guest with HTTPs-GET\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -55,7 +200,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index with #login with HTTPs-POST",
-        "code": "# @connects #index with #login with HTTPs-POST\ndef login_page():\n    return render_template('login.html')\n\n@flask_app.route('/index')\ndef index2_page():\n",
+        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -69,7 +214,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login with #index with HTTPs-POST",
-        "code": "# @connects #login with #index with HTTPs-POST\ndef login_page():\n    return render_template('login.html')\n\n@flask_app.route('/index')\ndef index2_page():\n",
+        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -160,28 +305,28 @@
     },
     {
       "source_component": "#vpc",
-      "destination_component": "#guest",
+      "destination_component": "#dev",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #vpc to #guest with network traffic",
-        "code": "# @connects #vpc to #guest with network traffic\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
+        "annotation": "@connects #vpc to #dev with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #vpc to #dev with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
     },
     {
-      "source_component": "#guest",
+      "source_component": "#dev",
       "destination_component": "#vpc",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #guest to #vpc with network traffic",
-        "code": "# @connects #guest to #vpc with network traffic\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
+        "annotation": "@connects #dev to #vpc with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #dev to #vpc with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -190,12 +335,12 @@
       "source_component": "#vpc",
       "destination_component": "#igw",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #vpc to #igw with network traffic",
-        "code": "# @connects #vpc to #igw with network traffic\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
+        "annotation": "@connects #vpc to #igw with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #vpc to #igw with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_vpc\" \"cyber94_full_dpook_vpc_tf\" {\n  cidr_block       = \"10.105.0.0/16\"\n  tags = {\n    Name = \"cyber94_full_dpook_vpc\"\n  }\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -204,12 +349,12 @@
       "source_component": "#igw",
       "destination_component": "#vpc",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #igw to #vpc with network traffic",
-        "code": "# @connects #igw to #vpc with network traffic\nresource \"aws_internet_gateway\" \"cyber94_full_dpook_igw_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  tags = {\n    Name = \"cyber94_full_dpook_igw\"\n",
+        "annotation": "@connects #igw to #vpc with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #igw to #vpc with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_internet_gateway\" \"cyber94_full_dpook_igw_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  tags = {\n    Name = \"cyber94_full_dpook_igw\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -218,12 +363,12 @@
       "source_component": "#igw",
       "destination_component": "#rt",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #igw to #rt with network traffic",
-        "code": "# @connects #igw to #rt with network traffic\nresource \"aws_internet_gateway\" \"cyber94_full_dpook_igw_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  tags = {\n    Name = \"cyber94_full_dpook_igw\"\n",
+        "annotation": "@connects #igw to #rt with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #igw to #rt with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_internet_gateway\" \"cyber94_full_dpook_igw_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  tags = {\n    Name = \"cyber94_full_dpook_igw\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -232,12 +377,12 @@
       "source_component": "#rt",
       "destination_component": "#igw",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #rt to #igw with network traffic",
-        "code": "# @connects #rt to #igw with network traffic\nresource \"aws_route_table\" \"cyber94_full_dpook_rt_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  route {\n    cidr_block = \"0.0.0.0/0\"\n",
+        "annotation": "@connects #rt to #igw with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #rt to #igw with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_route_table\" \"cyber94_full_dpook_rt_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n\n  route {\n    cidr_block = \"0.0.0.0/0\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -246,12 +391,12 @@
       "source_component": "#naclapp",
       "destination_component": "#subnetapp",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #naclapp to #subnetapp with network traffic",
-        "code": "# @connects #naclapp to #subnetapp with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_app_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.1.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_app\"\n",
+        "annotation": "@connects #naclapp to #subnetapp with SSH,HTTPs,Ephemeral",
+        "code": "# @connects #naclapp to #subnetapp with SSH,HTTPs,Ephemeral\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_app_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.1.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_app\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -260,12 +405,12 @@
       "source_component": "#subnetapp",
       "destination_component": "#naclapp",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetapp to #naclapp with network traffic",
-        "code": "# @connects #subnetapp to #naclapp with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_app_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.1.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_app\"\n",
+        "annotation": "@connects #subnetapp to #naclapp with SSH,HTTPs,Ephemeral",
+        "code": "# @connects #subnetapp to #naclapp with SSH,HTTPs,Ephemeral\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_app_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.1.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_app\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -274,12 +419,12 @@
       "source_component": "#naclsql",
       "destination_component": "#subnetsql",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #naclsql to #subnetsql with network traffic",
-        "code": "# @connects #naclsql to #subnetsql with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_db_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.2.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_db\"\n",
+        "annotation": "@connects #naclsql to #subnetsql with SSH,SQL",
+        "code": "# @connects #naclsql to #subnetsql with SSH,SQL\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_db_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.2.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_db\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -288,12 +433,12 @@
       "source_component": "#subnetsql",
       "destination_component": "#naclsql",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetsql to #naclsql with network traffic",
-        "code": "# @connects #subnetsql to #naclsql with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_db_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.2.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_db\"\n",
+        "annotation": "@connects #subnetsql to #naclsql with SSH,SQL",
+        "code": "# @connects #subnetsql to #naclsql with SSH,SQL\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_db_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.2.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_db\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -302,12 +447,12 @@
       "source_component": "#naclbastion",
       "destination_component": "#subnetbastion",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #naclbastion to #subnetbastion with network traffic",
-        "code": "# @connects #naclbastion to #subnetbastion with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_bastion_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.3.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_bastion\"\n",
+        "annotation": "@connects #naclbastion to #subnetbastion with SSH",
+        "code": "# @connects #naclbastion to #subnetbastion with SSH\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_bastion_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.3.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_bastion\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -316,12 +461,12 @@
       "source_component": "#subnetbastion",
       "destination_component": "#naclbastion",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetbastion to #naclbastion with network traffic",
-        "code": "# @connects #subnetbastion to #naclbastion with network traffic\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_bastion_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.3.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_bastion\"\n",
+        "annotation": "@connects #subnetbastion to #naclbastion with SSH",
+        "code": "# @connects #subnetbastion to #naclbastion with SSH\nresource \"aws_subnet\" \"cyber94_full_dpook_subnet_bastion_tf\" {\n  vpc_id     = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  cidr_block = \"10.105.3.0/24\"\n  tags = {\n    Name = \"cyber94_full_dpook_subnet_bastion\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -330,12 +475,12 @@
       "source_component": "#rt",
       "destination_component": "#naclapp",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #rt to #naclapp with network traffic",
-        "code": "# @connects #rt to #naclapp with network traffic\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_app_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]\n\n  egress {\n",
+        "annotation": "@connects #rt to #naclapp with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #rt to #naclapp with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_app_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]\n\n  egress {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -344,12 +489,12 @@
       "source_component": "#naclapp",
       "destination_component": "#rt",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #naclapp to #rt with network traffic",
-        "code": "# @connects #naclapp to #rt with network traffic\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_app_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]\n\n  egress {\n",
+        "annotation": "@connects #naclapp to #rt with SSH,HTTP,HTTPs,Ephemeral",
+        "code": "# @connects #naclapp to #rt with SSH,HTTP,HTTPs,Ephemeral\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_app_tf\" {\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_app_tf.id]\n\n  egress {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -358,12 +503,12 @@
       "source_component": "#rt",
       "destination_component": "#naclbastion",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #rt to #naclbastion with network traffic",
-        "code": "# @connects #rt to #naclbastion with network traffic\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_bastion_tf\" {\n\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id]\n\n",
+        "annotation": "@connects #rt to #naclbastion with SSH",
+        "code": "# @connects #rt to #naclbastion with SSH\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_bastion_tf\" {\n\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id]\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -372,12 +517,12 @@
       "source_component": "#naclbastion",
       "destination_component": "#rt",
       "direction": "to",
-      "details": "network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #naclbastion to #rt with network traffic",
-        "code": "# @connects #naclbastion to #rt with network traffic\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_bastion_tf\" {\n\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id]\n\n",
+        "annotation": "@connects #naclbastion to #rt with SSH",
+        "code": "# @connects #naclbastion to #rt with SSH\nresource \"aws_network_acl\" \"cyber94_full_dpook_nacl_bastion_tf\" {\n\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  subnet_ids = [aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id]\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -386,12 +531,12 @@
       "source_component": "#sg_app",
       "destination_component": "#subnetapp",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_app to #subnetapp with Network traffic",
-        "code": "# @connects #sg_app to #subnetapp with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_app_tf\" {\n  name = \"cyber94_full_dpook_sg_app\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n    from_port = 22\n",
+        "annotation": "@connects #sg_app to #subnetapp with SSH,HTTP,HTTPs,Ephemeral,SQL",
+        "code": "# @connects #sg_app to #subnetapp with SSH,HTTP,HTTPs,Ephemeral,SQL\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_app_tf\" {\n  name = \"cyber94_full_dpook_sg_app\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n    from_port = 22\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -400,12 +545,12 @@
       "source_component": "#subnetapp",
       "destination_component": "#sg_app",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH,HTTP,HTTPs,Ephemeral,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetapp to #sg_app with Network traffic",
-        "code": "# @connects #subnetapp to #sg_app with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_app_tf\" {\n  name = \"cyber94_full_dpook_sg_app\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n    from_port = 22\n",
+        "annotation": "@connects #subnetapp to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL",
+        "code": "# @connects #subnetapp to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_app_tf\" {\n  name = \"cyber94_full_dpook_sg_app\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n    from_port = 22\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -414,12 +559,12 @@
       "source_component": "#sg_sql",
       "destination_component": "#subnetsql",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_sql to #subnetsql with Network traffic",
-        "code": "# @connects #sg_sql to #subnetsql with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_db_tf\" {\n\n  name = \"cyber94_full_dpook_sg_db\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
+        "annotation": "@connects #sg_sql to #subnetsql with SSH,SQL",
+        "code": "# @connects #sg_sql to #subnetsql with SSH,SQL\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_db_tf\" {\n\n  name = \"cyber94_full_dpook_sg_db\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -428,12 +573,12 @@
       "source_component": "#subnetsql",
       "destination_component": "#sg_sql",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetsql to #sg_sql with Network traffic",
-        "code": "# @connects #subnetsql to #sg_sql with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_db_tf\" {\n\n  name = \"cyber94_full_dpook_sg_db\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
+        "annotation": "@connects #subnetsql to #sg_sql with SSH,SQL",
+        "code": "# @connects #subnetsql to #sg_sql with SSH,SQL\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_db_tf\" {\n\n  name = \"cyber94_full_dpook_sg_db\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -442,12 +587,12 @@
       "source_component": "#sg_bastion",
       "destination_component": "#subnetbastion",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_bastion to #subnetbastion with Network traffic",
-        "code": "# @connects #sg_bastion to #subnetbastion with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_bastion_tf\" {\n\n  name = \"cyber94_full_dpook_sg_bastion\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
+        "annotation": "@connects #sg_bastion to #subnetbastion with SSH",
+        "code": "# @connects #sg_bastion to #subnetbastion with SSH\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_bastion_tf\" {\n\n  name = \"cyber94_full_dpook_sg_bastion\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -456,12 +601,12 @@
       "source_component": "#subnetbastion",
       "destination_component": "#sg_bastion",
       "direction": "to",
-      "details": "Network traffic",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #subnetbastion to #sg_bastion with Network traffic",
-        "code": "# @connects #subnetbastion to #sg_bastion with Network traffic\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_bastion_tf\" {\n\n  name = \"cyber94_full_dpook_sg_bastion\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
+        "annotation": "@connects #subnetbastion to #sg_bastion with SSH",
+        "code": "# @connects #subnetbastion to #sg_bastion with SSH\nresource \"aws_security_group\" \"cyber94_full_dpook_sg_bastion_tf\" {\n\n  name = \"cyber94_full_dpook_sg_bastion\"\n  vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id\n  ingress{\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -470,12 +615,12 @@
       "source_component": "#sg_app",
       "destination_component": "#app_server",
       "direction": "to",
-      "details": "Network",
+      "details": "SSH,HTTP,HTTPs,Ephemeral,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_app to #app_server with Network",
-        "code": "# @connects #sg_app to #app_server with Network\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "annotation": "@connects #sg_app to #app_server with SSH,HTTP,HTTPs,Ephemeral,SQL",
+        "code": "# @connects #sg_app to #app_server with SSH,HTTP,HTTPs,Ephemeral,SQL\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -484,12 +629,12 @@
       "source_component": "#app_server",
       "destination_component": "#sg_app",
       "direction": "to",
-      "details": "Network",
+      "details": "SSH,HTTP,HTTPs,Ephemeral,SQL",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #app_server to #sg_app with Network",
-        "code": "# @connects #app_server to #sg_app with Network\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "annotation": "@connects #app_server to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL",
+        "code": "# @connects #app_server to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -503,7 +648,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclapp to #naclsql with SQL request",
-        "code": "# @connects #naclapp to #naclsql with SQL request\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @connects #naclapp to #naclsql with SQL request\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -568,12 +713,12 @@
       "source_component": "#sg_bastion",
       "destination_component": "#bastion_server",
       "direction": "to",
-      "details": "Network",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #sg_bastion to #bastion_server with Network",
-        "code": "# @connects #sg_bastion to #bastion_server with Network\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "annotation": "@connects #sg_bastion to #bastion_server with SSH",
+        "code": "# @connects #sg_bastion to #bastion_server with SSH\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -582,12 +727,12 @@
       "source_component": "#bastion_server",
       "destination_component": "#sg_bastion",
       "direction": "to",
-      "details": "Network",
+      "details": "SSH",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #bastion_server to #sg_bastion with Network",
-        "code": "# @connects #bastion_server to #sg_bastion with Network\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "annotation": "@connects #bastion_server to #sg_bastion with SSH",
+        "code": "# @connects #bastion_server to #sg_bastion with SSH\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -601,7 +746,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclbastion to #naclsql with SSH_Request",
-        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -609,5 +754,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "4e06c9948a294b468b6b88457e613f95"
+  "run_id": "719d05b0b50d431da1d27b0a856d6180"
 }
