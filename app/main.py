@@ -42,8 +42,15 @@ flask_app = Flask(__name__)
 # @threat Buffer overflow (#buffover)
 # @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
 
-# @threat Absence of anti-CSRF tokens (reflected) (#csfr)
+# @threat Absence of anti-CSRF tokens (#csfr)
 # @exposes #index to tampering manipulation with #csrf
+
+# @threat No cache control header set (#cache)
+# @exposes #index to information disclosure with #cache
+# @exposes #login to information disclosure with #cache
+# @exposes #logout to information disclosure with #cache
+# @exposes #ac to information disclosure with #cache
+
 
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():

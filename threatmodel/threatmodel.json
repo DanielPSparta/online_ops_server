@@ -140,7 +140,7 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #index to javascript manipulation with #xss",
-        "code": "# @exposes #index to javascript manipulation with #xss\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n",
+        "code": "# @exposes #index to javascript manipulation with #xss\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -153,7 +153,7 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover",
-        "code": "# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
+        "code": "# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover\n\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -166,7 +166,59 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #index to tampering manipulation with #csrf",
-        "code": "# @exposes #index to tampering manipulation with #csrf\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n    isUserLoggedIn = False\n",
+        "code": "# @exposes #index to tampering manipulation with #csrf\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#index",
+      "details": "#cache",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #index to information disclosure with #cache",
+        "code": "# @exposes #index to information disclosure with #cache\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#login",
+      "details": "#cache",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #login to information disclosure with #cache",
+        "code": "# @exposes #login to information disclosure with #cache\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#logout",
+      "details": "#cache",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #logout to information disclosure with #cache",
+        "code": "# @exposes #logout to information disclosure with #cache\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#information_disclosure",
+      "component": "#ac",
+      "details": "#cache",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #ac to information disclosure with #cache",
+        "code": "# @exposes #ac to information disclosure with #cache\n\n\n@flask_app.route('/', methods = ['POST','GET'])\ndef index_page():\n    print(request.headers)\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -263,7 +315,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #guest to #index with HTTPs-GET",
-        "code": "# @connects #guest to #index with HTTPs-GET\n\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\n",
+        "code": "# @connects #guest to #index with HTTPs-GET\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -277,7 +329,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index to #guest with HTTPs-GET",
-        "code": "# @connects #index to #guest with HTTPs-GET\n\n\n\n\n@flask_app.route('/', methods = ['POST','GET'])\n",
+        "code": "# @connects #index to #guest with HTTPs-GET\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -859,5 +911,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "4b692ddf06264126981263b53981a3a9"
+  "run_id": "50ab3e60a4c048d19947a78d741ee66c"
 }

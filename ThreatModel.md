@@ -32,8 +32,8 @@ def verify_token(token):
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
-def index_page():
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -45,9 +45,9 @@ def index_page():
 # @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
 
 
+
+
 @flask_app.route('/', methods = ['POST','GET'])
-def index_page():
-    print(request.headers)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -58,10 +58,66 @@ def index_page():
 ```
 # @exposes #index to tampering manipulation with #csrf
 
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:Index
+#cache
+
+```
+# @exposes #index to information disclosure with #cache
+
+
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
     print(request.headers)
-    isUserLoggedIn = False
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:Login
+#cache
+
+```
+# @exposes #login to information disclosure with #cache
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+    print(request.headers)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:logout
+#cache
+
+```
+# @exposes #logout to information disclosure with #cache
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+    print(request.headers)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Information disclosure against CalcApp:Web_Server:Accountcreation
+#cache
+
+```
+# @exposes #ac to information disclosure with #cache
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+    print(request.headers)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -300,7 +356,7 @@ HTTPs-GET
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -314,7 +370,7 @@ HTTPs-GET
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -908,15 +964,15 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## CalcApp:Web_Server:Index
 
-## TerraformAWS:SQL_Server
+## CalcApp:Web_Server:logout
 
 ## CalcApp:Web_Server:Accountcreation
+
+## TerraformAWS:SQL_Server
 
 ## CalcApp:Web_Server:Accountcreated
 
 ## CalcApp:Web_Server:Authenticated
-
-## CalcApp:Web_Server:logout
 
 ## TerraformAWS:VPC
 
@@ -979,6 +1035,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 
 ## Tampering manipulation
+
+
+## Information disclosure
 
 
 ## Privilege escalation
