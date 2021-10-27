@@ -58,6 +58,7 @@ resource "aws_instance" "cyber94_calculator_2_dpook_webserver_tf" {
 
   vpc_security_group_ids = [aws_security_group.cyber94_calculator_2_dpook_webserver_sg_tf.id]
 
+  user_data = templatefile("../init-scripts/docker-install.sh", {SPECIAL_ARG="This is an argument from terraform"})
   tags = {
     Name = "cyber94_calculator_2_dpook_webserver_${count.index}"
   }

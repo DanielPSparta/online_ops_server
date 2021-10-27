@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get remove -y docker docker-engine docker.io containerd runc
 sudo apt-get update
 sudo apt-get install -y \
@@ -14,3 +16,4 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -a -G docker ubuntu
 echo "Hello"
+echo ${SPECIAL_ARG}
