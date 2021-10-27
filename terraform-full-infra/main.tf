@@ -47,7 +47,7 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 
 
 
-# @component TerraformAWS:VPC:Internet_gateway (#igw)
+# @component Jenkins:TerraformAWS:VPC:Internet_gateway (#igw)
 # @connects #igw to #vpc with SSH,HTTP,HTTPs,Ephemeral
 # @connects #igw to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
@@ -58,7 +58,7 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:Routetable (#rt)
+# @component Jenkins:TerraformAWS:VPC:Routetable (#rt)
 # @connects #rt to #igw with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -73,7 +73,7 @@ resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
 }
 
 
-# @component TerraformAWS:VPC:SubnetApp (#subnetapp)
+# @component Jenkins:TerraformAWS:VPC:SubnetApp (#subnetapp)
 # @connects #naclapp to #subnetapp with SSH,HTTPs,Ephemeral
 # @connects #subnetapp to #naclapp with SSH,HTTPs,Ephemeral
 resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
@@ -84,7 +84,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:SubnetSQL (#subnetsql)
+# @component Jenkins:TerraformAWS:VPC:SubnetSQL (#subnetsql)
 # @connects #naclsql to #subnetsql with SSH,SQL
 # @connects #subnetsql to #naclsql with SSH,SQL
 resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
@@ -95,7 +95,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:Subnetbastion (#subnetbastion)
+# @component Jenkins:TerraformAWS:VPC:Subnetbastion (#subnetbastion)
 # @connects #naclbastion to #subnetbastion with SSH
 # @connects #subnetbastion to #naclbastion with SSH
 resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
@@ -120,7 +120,7 @@ resource "aws_route_table_association" "cyber94_full_dpook_rt_association_bastio
 }
 
 
-# @component TerraformAWS:VPC:SubnetApp:NAClApp (#naclapp)
+# @component Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp (#naclapp)
 # @connects #rt to #naclapp with SSH,HTTP,HTTPs,Ephemeral
 # @connects #naclapp to #rt with SSH,HTTP,HTTPs,Ephemeral
 resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
@@ -229,7 +229,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:Subnetbastion:NAClBastion (#naclbastion)
+# @component Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion (#naclbastion)
 # @connects #rt to #naclbastion with SSH
 # @connects #naclbastion to #rt with SSH
 resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
@@ -321,7 +321,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:SubnetSQL:NAClSQL (#naclsql)
+# @component Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL (#naclsql)
 
 resource "aws_network_acl" "cyber94_full_dpook_nacl_db_tf" {
   vpc_id = aws_vpc.cyber94_full_dpook_vpc_tf.id
@@ -369,7 +369,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_db_tf" {
 }
 
 
-# @component TerraformAWS:VPC:Security_group_app (#sg_app)
+# @component Jenkins:TerraformAWS:VPC:Security_group_app (#sg_app)
 # @connects #sg_app to #subnetapp with SSH,HTTP,HTTPs,Ephemeral,SQL
 # @connects #subnetapp to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
@@ -422,7 +422,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:Security_group_SQL_server (#sg_sql)
+# @component Jenkins:TerraformAWS:VPC:Security_group_SQL_server (#sg_sql)
 # @connects #sg_sql to #subnetsql with SSH,SQL
 # @connects #subnetsql to #sg_sql with SSH,SQL
 resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
@@ -450,7 +450,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
   }
 }
 
-# @component TerraformAWS:VPC:Security_group_bastion_server (#sg_bastion)
+# @component Jenkins:TerraformAWS:VPC:Security_group_bastion_server (#sg_bastion)
 # @connects #sg_bastion to #subnetbastion with SSH
 # @connects #subnetbastion to #sg_bastion with SSH
 resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
@@ -501,7 +501,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 
 
 
-# @component TerraformAWS:Web_Server (#app_server)
+# @component Jenkins:TerraformAWS:Web_Server (#app_server)
 # @connects #sg_app to #app_server with SSH,HTTP,HTTPs,Ephemeral,SQL
 # @connects #app_server to #sg_app with SSH,HTTP,HTTPs,Ephemeral,SQL
 
@@ -590,7 +590,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
   } */
 }
 
-# @component TerraformAWS:SQL_Server (#sql_server)
+# @component Jenkins:TerraformAWS:SQL_Server (#sql_server)
 # @connects #sg_sql to #sql_server with Network traffic
 # @connects #sql_server to #sg_sql with Network traffic
 
@@ -615,7 +615,7 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
   }
 }
 
-# @component TerraformAWS:bastion_Server (#bastion_server)
+# @component Jenkins:TerraformAWS:bastion_Server (#bastion_server)
 # @connects #sg_bastion to #bastion_server with SSH
 # @connects #bastion_server to #sg_bastion with SSH
 

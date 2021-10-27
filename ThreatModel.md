@@ -136,7 +136,7 @@ def login_page():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## Out of service against TerraformAWS:Web_Server
+## Out of service against Jenkins:TerraformAWS:Web_Server
 Not using idp
 
 ```
@@ -150,7 +150,7 @@ Not using idp
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Overwriting memory of backend web processes. throws sevrer 500 error against TerraformAWS:Web_Server
+## Overwriting memory of backend web processes. throws sevrer 500 error against Jenkins:TerraformAWS:Web_Server
 #buffover
 
 ```
@@ -164,7 +164,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Tampering manipulation against TerraformAWS:Web_Server
+## Tampering manipulation against Jenkins:TerraformAWS:Web_Server
 #csrf
 
 ```
@@ -178,7 +178,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Credential exposure against TerraformAWS:SQL_Server
+## Credential exposure against Jenkins:TerraformAWS:SQL_Server
 Credentials stored unhashed
 
 ```
@@ -257,7 +257,7 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Port sniffing for open ports against TerraformAWS:Web_Server mitigated by Only listen on needed ports
+## Port sniffing for open ports against Jenkins:TerraformAWS:Web_Server mitigated by Only listen on needed ports
 
 
 ```
@@ -271,7 +271,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Access to ubuntu allows access to database against TerraformAWS:Web_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
+## Access to ubuntu allows access to database against Jenkins:TerraformAWS:Web_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
 
 
 ```
@@ -285,7 +285,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Network mapping of cloud servers against TerraformAWS:Web_Server mitigated by Use proxy server to access all servers in vpc
+## Network mapping of cloud servers against Jenkins:TerraformAWS:Web_Server mitigated by Use proxy server to access all servers in vpc
 
 
 ```
@@ -299,7 +299,7 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Intruder ssh connection against TerraformAWS:bastion_Server mitigated by Nacl and security group ip check
+## Intruder ssh connection against Jenkins:TerraformAWS:bastion_Server mitigated by Nacl and security group ip check
 
 
 ```
@@ -313,7 +313,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Open ports on with public ip against TerraformAWS:bastion_Server mitigated by Only developer computer ip allowed through
+## Open ports on with public ip against Jenkins:TerraformAWS:bastion_Server mitigated by Only developer computer ip allowed through
 
 
 ```
@@ -327,7 +327,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## Access to ubuntu allows access to database against TerraformAWS:bastion_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
+## Access to ubuntu allows access to database against Jenkins:TerraformAWS:bastion_Server mitigated by Only allow ssh connections to ubuntu user from specific ip
 
 
 ```
@@ -347,7 +347,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 # Connections
 
-## TerraformAWS:Web_Server To Dockerhub:Container
+## Jenkins:TerraformAWS:Web_Server To Developer_Computer:Jenkins:Dockerhub:Container
 Hosting
 
 ```
@@ -361,7 +361,7 @@ Hosting
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## Dockerhub:Container To CalcApp:Web_Server:Index
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Index
 Running
 
 ```
@@ -557,7 +557,7 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC To TerraformAWS:VPC:Internet_gateway
+## TerraformAWS:VPC To Jenkins:TerraformAWS:VPC:Internet_gateway
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -571,7 +571,7 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Internet_gateway To TerraformAWS:VPC
+## Jenkins:TerraformAWS:VPC:Internet_gateway To TerraformAWS:VPC
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -585,7 +585,7 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Internet_gateway To TerraformAWS:VPC:Routetable
+## Jenkins:TerraformAWS:VPC:Internet_gateway To Jenkins:TerraformAWS:VPC:Routetable
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -599,7 +599,7 @@ resource "aws_internet_gateway" "cyber94_full_dpook_igw_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:Internet_gateway
+## Jenkins:TerraformAWS:VPC:Routetable To Jenkins:TerraformAWS:VPC:Internet_gateway
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -613,7 +613,7 @@ resource "aws_route_table" "cyber94_full_dpook_rt_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetApp:NAClApp To TerraformAWS:VPC:SubnetApp
+## Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp To Jenkins:TerraformAWS:VPC:SubnetApp
 SSH,HTTPs,Ephemeral
 
 ```
@@ -627,7 +627,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetApp To TerraformAWS:VPC:SubnetApp:NAClApp
+## Jenkins:TerraformAWS:VPC:SubnetApp To Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp
 SSH,HTTPs,Ephemeral
 
 ```
@@ -641,7 +641,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetSQL:NAClSQL To TerraformAWS:VPC:SubnetSQL
+## Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL To Jenkins:TerraformAWS:VPC:SubnetSQL
 SSH,SQL
 
 ```
@@ -655,7 +655,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetSQL To TerraformAWS:VPC:SubnetSQL:NAClSQL
+## Jenkins:TerraformAWS:VPC:SubnetSQL To Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL
 SSH,SQL
 
 ```
@@ -669,7 +669,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Subnetbastion:NAClBastion To TerraformAWS:VPC:Subnetbastion
+## Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion To Jenkins:TerraformAWS:VPC:Subnetbastion
 SSH
 
 ```
@@ -683,7 +683,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Subnetbastion To TerraformAWS:VPC:Subnetbastion:NAClBastion
+## Jenkins:TerraformAWS:VPC:Subnetbastion To Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion
 SSH
 
 ```
@@ -697,7 +697,7 @@ resource "aws_subnet" "cyber94_full_dpook_subnet_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:SubnetApp:NAClApp
+## Jenkins:TerraformAWS:VPC:Routetable To Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -711,7 +711,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetApp:NAClApp To TerraformAWS:VPC:Routetable
+## Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp To Jenkins:TerraformAWS:VPC:Routetable
 SSH,HTTP,HTTPs,Ephemeral
 
 ```
@@ -725,7 +725,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Routetable To TerraformAWS:VPC:Subnetbastion:NAClBastion
+## Jenkins:TerraformAWS:VPC:Routetable To Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion
 SSH
 
 ```
@@ -739,7 +739,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Subnetbastion:NAClBastion To TerraformAWS:VPC:Routetable
+## Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion To Jenkins:TerraformAWS:VPC:Routetable
 SSH
 
 ```
@@ -753,7 +753,7 @@ resource "aws_network_acl" "cyber94_full_dpook_nacl_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_app To TerraformAWS:VPC:SubnetApp
+## Jenkins:TerraformAWS:VPC:Security_group_app To Jenkins:TerraformAWS:VPC:SubnetApp
 SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
@@ -767,7 +767,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetApp To TerraformAWS:VPC:Security_group_app
+## Jenkins:TerraformAWS:VPC:SubnetApp To Jenkins:TerraformAWS:VPC:Security_group_app
 SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
@@ -781,7 +781,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_SQL_server To TerraformAWS:VPC:SubnetSQL
+## Jenkins:TerraformAWS:VPC:Security_group_SQL_server To Jenkins:TerraformAWS:VPC:SubnetSQL
 SSH,SQL
 
 ```
@@ -795,7 +795,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetSQL To TerraformAWS:VPC:Security_group_SQL_server
+## Jenkins:TerraformAWS:VPC:SubnetSQL To Jenkins:TerraformAWS:VPC:Security_group_SQL_server
 SSH,SQL
 
 ```
@@ -809,7 +809,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_bastion_server To TerraformAWS:VPC:Subnetbastion
+## Jenkins:TerraformAWS:VPC:Security_group_bastion_server To Jenkins:TerraformAWS:VPC:Subnetbastion
 SSH
 
 ```
@@ -823,7 +823,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Subnetbastion To TerraformAWS:VPC:Security_group_bastion_server
+## Jenkins:TerraformAWS:VPC:Subnetbastion To Jenkins:TerraformAWS:VPC:Security_group_bastion_server
 SSH
 
 ```
@@ -837,7 +837,7 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_app To TerraformAWS:Web_Server
+## Jenkins:TerraformAWS:VPC:Security_group_app To Jenkins:TerraformAWS:Web_Server
 SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
@@ -851,7 +851,7 @@ SSH,HTTP,HTTPs,Ephemeral,SQL
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:Web_Server To TerraformAWS:VPC:Security_group_app
+## Jenkins:TerraformAWS:Web_Server To Jenkins:TerraformAWS:VPC:Security_group_app
 SSH,HTTP,HTTPs,Ephemeral,SQL
 
 ```
@@ -865,7 +865,7 @@ SSH,HTTP,HTTPs,Ephemeral,SQL
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetApp:NAClApp To TerraformAWS:VPC:SubnetSQL:NAClSQL
+## Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp To Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL
 SQL request
 
 ```
@@ -879,7 +879,7 @@ SQL request
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_SQL_server To TerraformAWS:SQL_Server
+## Jenkins:TerraformAWS:VPC:Security_group_SQL_server To Jenkins:TerraformAWS:SQL_Server
 Network traffic
 
 ```
@@ -893,7 +893,7 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:SQL_Server To TerraformAWS:VPC:Security_group_SQL_server
+## Jenkins:TerraformAWS:SQL_Server To Jenkins:TerraformAWS:VPC:Security_group_SQL_server
 Network traffic
 
 ```
@@ -907,7 +907,7 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetSQL:NAClSQL To TerraformAWS:VPC:Subnetbastion:NAClBastion
+## Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL To Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion
 SSH_Responce
 
 ```
@@ -921,7 +921,7 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:SubnetSQL:NAClSQL To TerraformAWS:VPC:SubnetApp:NAClApp
+## Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL To Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp
 SQL Responce
 
 ```
@@ -935,7 +935,7 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Security_group_bastion_server To TerraformAWS:bastion_Server
+## Jenkins:TerraformAWS:VPC:Security_group_bastion_server To Jenkins:TerraformAWS:bastion_Server
 SSH
 
 ```
@@ -949,7 +949,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:bastion_Server To TerraformAWS:VPC:Security_group_bastion_server
+## Jenkins:TerraformAWS:bastion_Server To Jenkins:TerraformAWS:VPC:Security_group_bastion_server
 SSH
 
 ```
@@ -963,7 +963,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
-## TerraformAWS:VPC:Subnetbastion:NAClBastion To TerraformAWS:VPC:SubnetSQL:NAClSQL
+## Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion To Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL
 SSH_Request
 
 ```
@@ -984,9 +984,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## Internet:Developer_Computer
 
-## TerraformAWS:Web_Server
+## Jenkins:TerraformAWS:Web_Server
 
-## TerraformAWS:bastion_Server
+## Jenkins:TerraformAWS:bastion_Server
 
 ## Internet:Guest
 
@@ -996,9 +996,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## CalcApp:Web_Server:Accountcreation
 
-## TerraformAWS:SQL_Server
+## Jenkins:TerraformAWS:SQL_Server
 
-## Dockerhub:Container
+## Developer_Computer:Jenkins:Dockerhub:Container
 
 ## CalcApp:Web_Server:Accountcreated
 
@@ -1006,27 +1006,27 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## TerraformAWS:VPC
 
-## TerraformAWS:VPC:Internet_gateway
+## Jenkins:TerraformAWS:VPC:Internet_gateway
 
-## TerraformAWS:VPC:Routetable
+## Jenkins:TerraformAWS:VPC:Routetable
 
-## TerraformAWS:VPC:SubnetApp:NAClApp
+## Jenkins:TerraformAWS:VPC:SubnetApp:NAClApp
 
-## TerraformAWS:VPC:SubnetApp
+## Jenkins:TerraformAWS:VPC:SubnetApp
 
-## TerraformAWS:VPC:SubnetSQL:NAClSQL
+## Jenkins:TerraformAWS:VPC:SubnetSQL:NAClSQL
 
-## TerraformAWS:VPC:SubnetSQL
+## Jenkins:TerraformAWS:VPC:SubnetSQL
 
-## TerraformAWS:VPC:Subnetbastion:NAClBastion
+## Jenkins:TerraformAWS:VPC:Subnetbastion:NAClBastion
 
-## TerraformAWS:VPC:Subnetbastion
+## Jenkins:TerraformAWS:VPC:Subnetbastion
 
-## TerraformAWS:VPC:Security_group_app
+## Jenkins:TerraformAWS:VPC:Security_group_app
 
-## TerraformAWS:VPC:Security_group_SQL_server
+## Jenkins:TerraformAWS:VPC:Security_group_SQL_server
 
-## TerraformAWS:VPC:Security_group_bastion_server
+## Jenkins:TerraformAWS:VPC:Security_group_bastion_server
 
 
 # Threats

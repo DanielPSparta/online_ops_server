@@ -30,7 +30,7 @@ def verify_token(token):
 
  #------------------------------------server opening ---------------------------------------
 flask_app = Flask(__name__)
-# @component Dockerhub:Container (#container)
+# @component Developer_Computer:Jenkins:Dockerhub:Container (#container)
 # @component CalcApp:Web_Server:Index (#index)
 
 # @connects #app_server to #container with Hosting
