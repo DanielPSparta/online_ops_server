@@ -8,8 +8,13 @@ import sqlite_functions as sq
 SECRET_KEY = "C7E2F9D46E9"
 
 # @component Internet:Guest (#guest)
+# @component Internet:AuthenticatedUser (#auser)
+
 # @threat Out of Scope (#out)
 # @exposes #guest to Out of scope with cannot change
+
+# @threat Out of Scope (#out)
+# @exposes #auser to Out of scope with cannot change
 
 #--------------------------------------functions for the server-------------------------------------
 def create_token(username, password, user_id):
@@ -38,6 +43,9 @@ flask_app = Flask(__name__)
 
 # @connects #guest to #index with HTTPs-GET
 # @connects #index to #guest with HTTPs-GET
+
+# @connects #auser to #index with HTTPs-POST
+# @connects #index to #auser with HTTPs-POST
 
 # @threat Cross site scripting (reflected) (#xss)
 # @exposes #index to javascript manipulation with #xss
@@ -73,6 +81,8 @@ def index_page():
 # @component CalcApp:Web_Server:Login (#login)
 # @connects #index with #login with HTTPs-POST
 # @connects #login with #index with HTTPs-POST
+# @connects #guest to #login with HTTPs-POST
+# @connects #login to #guest with HTTPs-POST
 
 # @control Sanitise SQL inputs (#sanitise)
 # @threat SQL injection (#sqlinjection)
@@ -96,6 +106,8 @@ def index2_page():
 # @component CalcApp:Web_Server:Accountcreation (#ac)
 # @connects #ac with #acd with HTTPs-POST
 # @connects #login with #ac with HTTPs-POST
+# @connects #guest to #ac with HTTPs-POST
+# @connects #ac to #guest with HTTPs-POST
 
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
@@ -104,6 +116,9 @@ def addlogin_page():
 
 # @component CalcApp:Web_Server:Accountcreated (#acd)
 # @connects #acd with #login with HTTPs-POST
+# @connects #guest to #acd with HTTPs-POST
+# @connects #acd to #guest with HTTPs-POST
+
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
     data = request.form   #retreive data from the post from the login page
@@ -122,6 +137,10 @@ def accountcreated_page():
 # @component CalcApp:Web_Server:Authenticated (#auth)
 # @connects #login to #auth with HTTPs-POST
 # @connects #auth to #index with HTTPS-GET
+
+# @connects #auser to #auth with HTTPs-POST
+# @connects #auth to #auser with HTTPs-POST
+
 @flask_app.route('/authenticate', methods = ['POST']) #authpage get to here form login
 def authenticate_users():
     data = request.form   #retreive data from the post from the login page
@@ -151,6 +170,13 @@ def calculator_get():
         resp = make_response(redirect('/login'))
         return resp
 
+# @component CalcApp:Web_Server:Results (#results)
+
+# @connects #results to #index with HTTPs-get
+# @connects #index to #results with HTTPS-POST
+
+# @connects #auser to #results with HTTPs-POST
+# @connects #results to #auser with HTTPs-POST
 
 @flask_app.route('/results', methods = ['POST']) #authpage get to here form login
 def results_users():
@@ -186,6 +212,10 @@ def calculate2_post2():
 # @component CalcApp:Web_Server:logout (#logout)
 # @connects #index to #logout with HTTPs-POST
 # @connects #logout to #index with HTTPs-GET
+
+# @connects #auser to #logout with HTTPs-GET
+# @connects #logout to #auser with HTTPs-GET
+
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))

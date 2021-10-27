@@ -140,7 +140,20 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #guest to Out of scope with cannot change",
-        "code": "# @exposes #guest to Out of scope with cannot change\n\ndef create_token(username, password, user_id):\n    return token\n\ndef verify_token(token):\n",
+        "code": "# @exposes #guest to Out of scope with cannot change\n\n\ndef create_token(username, password, user_id):\n    return token\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#out_of_scope",
+      "component": "#auser",
+      "details": "cannot change",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #auser to Out of scope with cannot change",
+        "code": "# @exposes #auser to Out of scope with cannot change\n\ndef create_token(username, password, user_id):\n    return token\n\ndef verify_token(token):\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -362,6 +375,34 @@
       }
     },
     {
+      "source_component": "#auser",
+      "destination_component": "#index",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #auser to #index with HTTPs-POST",
+        "code": "# @connects #auser to #index with HTTPs-POST\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#index",
+      "destination_component": "#auser",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #index to #auser with HTTPs-POST",
+        "code": "# @connects #index to #auser with HTTPs-POST\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
       "source_component": "#index",
       "destination_component": "#login",
       "direction": "with",
@@ -385,6 +426,34 @@
       "source": {
         "annotation": "@connects #login with #index with HTTPs-POST",
         "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#guest",
+      "destination_component": "#login",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #guest to #login with HTTPs-POST",
+        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#login",
+      "destination_component": "#guest",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #login to #guest with HTTPs-POST",
+        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -418,6 +487,34 @@
       }
     },
     {
+      "source_component": "#guest",
+      "destination_component": "#ac",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #guest to #ac with HTTPs-POST",
+        "code": "# @connects #guest to #ac with HTTPs-POST\n\n@flask_app.route('/addlogin', methods = ['POST'])\ndef addlogin_page():\n    return render_template('addlogin.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#ac",
+      "destination_component": "#guest",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #ac to #guest with HTTPs-POST",
+        "code": "# @connects #ac to #guest with HTTPs-POST\n\n@flask_app.route('/addlogin', methods = ['POST'])\ndef addlogin_page():\n    return render_template('addlogin.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
       "source_component": "#acd",
       "destination_component": "#login",
       "direction": "with",
@@ -426,7 +523,35 @@
       "custom": {},
       "source": {
         "annotation": "@connects #acd with #login with HTTPs-POST",
-        "code": "# @connects #acd with #login with HTTPs-POST\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n\n",
+        "code": "# @connects #acd with #login with HTTPs-POST\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#guest",
+      "destination_component": "#acd",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #guest to #acd with HTTPs-POST",
+        "code": "# @connects #guest to #acd with HTTPs-POST\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#acd",
+      "destination_component": "#guest",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #acd to #guest with HTTPs-POST",
+        "code": "# @connects #acd to #guest with HTTPs-POST\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -440,7 +565,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login to #auth with HTTPs-POST",
-        "code": "# @connects #login to #auth with HTTPs-POST\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n    if check == True:\n        user_token = create_token(username,password, 1200)\n",
+        "code": "# @connects #login to #auth with HTTPs-POST\n\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -454,7 +579,91 @@
       "custom": {},
       "source": {
         "annotation": "@connects #auth to #index with HTTPS-GET",
-        "code": "# @connects #auth to #index with HTTPS-GET\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n    if check == True:\n        user_token = create_token(username,password, 1200)\n",
+        "code": "# @connects #auth to #index with HTTPS-GET\n\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#auser",
+      "destination_component": "#auth",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #auser to #auth with HTTPs-POST",
+        "code": "# @connects #auser to #auth with HTTPs-POST\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n    if check == True:\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#auth",
+      "destination_component": "#auser",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #auth to #auser with HTTPs-POST",
+        "code": "# @connects #auth to #auser with HTTPs-POST\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n    if check == True:\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#results",
+      "destination_component": "#index",
+      "direction": "to",
+      "details": "HTTPs-get",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #results to #index with HTTPs-get",
+        "code": "# @connects #results to #index with HTTPs-get\n\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#index",
+      "destination_component": "#results",
+      "direction": "to",
+      "details": "HTTPS-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #index to #results with HTTPS-POST",
+        "code": "# @connects #index to #results with HTTPS-POST\n\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#auser",
+      "destination_component": "#results",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #auser to #results with HTTPs-POST",
+        "code": "# @connects #auser to #results with HTTPs-POST\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#results",
+      "destination_component": "#auser",
+      "direction": "to",
+      "details": "HTTPs-POST",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #results to #auser with HTTPs-POST",
+        "code": "# @connects #results to #auser with HTTPs-POST\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -468,7 +677,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index to #logout with HTTPs-POST",
-        "code": "# @connects #index to #logout with HTTPs-POST\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n    return resp\n\n",
+        "code": "# @connects #index to #logout with HTTPs-POST\n\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -482,7 +691,35 @@
       "custom": {},
       "source": {
         "annotation": "@connects #logout to #index with HTTPs-GET",
-        "code": "# @connects #logout to #index with HTTPs-GET\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n    return resp\n\n",
+        "code": "# @connects #logout to #index with HTTPs-GET\n\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#auser",
+      "destination_component": "#logout",
+      "direction": "to",
+      "details": "HTTPs-GET",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #auser to #logout with HTTPs-GET",
+        "code": "# @connects #auser to #logout with HTTPs-GET\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n    return resp\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "source_component": "#logout",
+      "destination_component": "#auser",
+      "direction": "to",
+      "details": "HTTPs-GET",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@connects #logout to #auser with HTTPs-GET",
+        "code": "# @connects #logout to #auser with HTTPs-GET\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n    return resp\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -938,5 +1175,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "80a6bc7b5a8c4a53840d99bfa2cdaeff"
+  "run_id": "d53456f137d445baa443d25c4ce1f23b"
 }

@@ -16,6 +16,20 @@ Cannot change
 ```
 # @exposes #guest to Out of scope with cannot change
 
+
+def create_token(username, password, user_id):
+    return token
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Out of scope against Internet:AuthenticatedUser
+Cannot change
+
+```
+# @exposes #auser to Out of scope with cannot change
+
 def create_token(username, password, user_id):
     return token
 
@@ -403,6 +417,34 @@ HTTPs-GET
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Internet:AuthenticatedUser To CalcApp:Web_Server:Index
+HTTPs-POST
+
+```
+# @connects #auser to #index with HTTPs-POST
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Index To Internet:AuthenticatedUser
+HTTPs-POST
+
+```
+# @connects #index to #auser with HTTPs-POST
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## CalcApp:Web_Server:Index With CalcApp:Web_Server:Login
 HTTPs-POST
 
@@ -422,6 +464,34 @@ HTTPs-POST
 
 ```
 # @connects #login with #index with HTTPs-POST
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Internet:Guest To CalcApp:Web_Server:Login
+HTTPs-POST
+
+```
+# @connects #guest to #login with HTTPs-POST
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Login To Internet:Guest
+HTTPs-POST
+
+```
+# @connects #login to #guest with HTTPs-POST
 
 
 
@@ -459,16 +529,72 @@ def addlogin_page():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Internet:Guest To CalcApp:Web_Server:Accountcreation
+HTTPs-POST
+
+```
+# @connects #guest to #ac with HTTPs-POST
+
+@flask_app.route('/addlogin', methods = ['POST'])
+def addlogin_page():
+    return render_template('addlogin.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Accountcreation To Internet:Guest
+HTTPs-POST
+
+```
+# @connects #ac to #guest with HTTPs-POST
+
+@flask_app.route('/addlogin', methods = ['POST'])
+def addlogin_page():
+    return render_template('addlogin.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## CalcApp:Web_Server:Accountcreated With CalcApp:Web_Server:Login
 HTTPs-POST
 
 ```
 # @connects #acd with #login with HTTPs-POST
+
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
 
     password = data['password']
 
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Internet:Guest To CalcApp:Web_Server:Accountcreated
+HTTPs-POST
+
+```
+# @connects #guest to #acd with HTTPs-POST
+
+@flask_app.route('/accountcreated', methods = ['POST'])
+def accountcreated_page():
+
+    password = data['password']
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Accountcreated To Internet:Guest
+HTTPs-POST
+
+```
+# @connects #acd to #guest with HTTPs-POST
+
+@flask_app.route('/accountcreated', methods = ['POST'])
+def accountcreated_page():
+
+    password = data['password']
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -478,11 +604,11 @@ HTTPs-POST
 
 ```
 # @connects #login to #auth with HTTPs-POST
+
+
 def authenticate_users():
     password = data['password']
     check = sq.check_user_in_db(username,password)
-    if check == True:
-        user_token = create_token(username,password, 1200)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -492,11 +618,95 @@ HTTPS-GET
 
 ```
 # @connects #auth to #index with HTTPS-GET
+
+
+def authenticate_users():
+    password = data['password']
+    check = sq.check_user_in_db(username,password)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Internet:AuthenticatedUser To CalcApp:Web_Server:Authenticated
+HTTPs-POST
+
+```
+# @connects #auser to #auth with HTTPs-POST
+
 def authenticate_users():
     password = data['password']
     check = sq.check_user_in_db(username,password)
     if check == True:
-        user_token = create_token(username,password, 1200)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Authenticated To Internet:AuthenticatedUser
+HTTPs-POST
+
+```
+# @connects #auth to #auser with HTTPs-POST
+
+def authenticate_users():
+    password = data['password']
+    check = sq.check_user_in_db(username,password)
+    if check == True:
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Results To CalcApp:Web_Server:Index
+HTTPs-get
+
+```
+# @connects #results to #index with HTTPs-get
+
+
+def results_users():
+    num2 = float(data['number2'])
+    operation = request.form.get('operation')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Index To CalcApp:Web_Server:Results
+HTTPS-POST
+
+```
+# @connects #index to #results with HTTPS-POST
+
+
+def results_users():
+    num2 = float(data['number2'])
+    operation = request.form.get('operation')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Internet:AuthenticatedUser To CalcApp:Web_Server:Results
+HTTPs-POST
+
+```
+# @connects #auser to #results with HTTPs-POST
+
+def results_users():
+    num2 = float(data['number2'])
+    operation = request.form.get('operation')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:Results To Internet:AuthenticatedUser
+HTTPs-POST
+
+```
+# @connects #results to #auser with HTTPs-POST
+
+def results_users():
+    num2 = float(data['number2'])
+    operation = request.form.get('operation')
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -506,11 +716,11 @@ HTTPs-POST
 
 ```
 # @connects #index to #logout with HTTPs-POST
+
+
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))
-    return resp
-
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -520,11 +730,39 @@ HTTPs-GET
 
 ```
 # @connects #logout to #index with HTTPs-GET
+
+
+@flask_app.route('/logout', methods = ['POST','GET'])
+def logout():
+    resp = make_response(render_template('login.html'))
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Internet:AuthenticatedUser To CalcApp:Web_Server:logout
+HTTPs-GET
+
+```
+# @connects #auser to #logout with HTTPs-GET
+
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))
     return resp
 
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:logout To Internet:AuthenticatedUser
+HTTPs-GET
+
+```
+# @connects #logout to #auser with HTTPs-GET
+
+@flask_app.route('/logout', methods = ['POST','GET'])
+def logout():
+    resp = make_response(render_template('login.html'))
+    return resp
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -990,6 +1228,8 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## Internet:Guest
 
+## Internet:AuthenticatedUser
+
 ## CalcApp:Web_Server:Index
 
 ## CalcApp:Web_Server:logout
@@ -1003,6 +1243,8 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## CalcApp:Web_Server:Accountcreated
 
 ## CalcApp:Web_Server:Authenticated
+
+## CalcApp:Web_Server:Results
 
 ## TerraformAWS:VPC
 
