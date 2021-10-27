@@ -24,6 +24,20 @@ def verify_token(token):
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Privilege escalation against CalcApp:Web_Server:Login
+#brute
+
+```
+# @exposes #login to privilege escalation with #brute
+
+
+
+def login_page():
+    return render_template('login.html')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Out of service against TerraformAWS:Web_Server
 Not using idp
 
@@ -32,8 +46,8 @@ Not using idp
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -44,10 +58,10 @@ Credentials stored unhashed
 ```
 # @exposes #sql_server to credential exposure with credentials stored unhashed
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
   ami = "ami-0d1c7c4de1f4cdc9a"
-  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -67,10 +81,10 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 ```
 # @mitigates #login against ##sqlinjection with #sanitise
 
-def login_page():
-    return render_template('login.html')
 
-@flask_app.route('/index')
+
+
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -124,9 +138,9 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 # @mitigates #app_server against #portsniff with #portsniffdefense
 
 
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -136,6 +150,20 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 
 ```
 # @mitigates #app_server against #ubuntuaccess with #ubuntuprotect
+
+
+resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+  ami = "ami-0943382e114f188e8"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Network mapping of cloud servers against TerraformAWS:Web_Server mitigated by Use proxy server to access all servers in vpc
+
+
+```
+# @mitigates #app_server against #networkmap with #infraprotect
 
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
@@ -229,8 +257,8 @@ HTTPs-POST
 
 
 
-def login_page():
-    return render_template('login.html')
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -243,8 +271,8 @@ HTTPs-POST
 
 
 
-def login_page():
-    return render_template('login.html')
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -691,8 +719,8 @@ Network traffic
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -705,8 +733,8 @@ Network traffic
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -718,9 +746,9 @@ SSH_Responce
 # @connects #naclsql to #naclbastion with SSH_Responce
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
-  ami = "ami-0d1c7c4de1f4cdc9a"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -732,9 +760,9 @@ SQL Responce
 # @connects #naclsql to #naclapp with SQL Responce
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
-  ami = "ami-0d1c7c4de1f4cdc9a"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -851,10 +879,16 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Access to ubuntu allows access to database
 
 
+## Network mapping of cloud servers
+
+
 ## Intruder ssh connection
 
 
 ## Out of scope
+
+
+## Privilege escalation
 
 
 ## Out of service
@@ -875,5 +909,7 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Only listen on needed ports
 
 ## Only allow ssh connections to ubuntu user from specific ip
+
+## Use proxy server to access all servers in vpc
 
 ## Nacl and security group ip check

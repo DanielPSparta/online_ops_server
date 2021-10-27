@@ -8,7 +8,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #login against ##sqlinjection with #sanitise",
-        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\ndef login_page():\n    return render_template('login.html')\n\n@flask_app.route('/index')\n",
+        "code": "# @mitigates #login against ##sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -60,7 +60,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #app_server against #portsniff with #portsniffdefense",
-        "code": "# @mitigates #app_server against #portsniff with #portsniffdefense\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "code": "# @mitigates #app_server against #portsniff with #portsniffdefense\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -73,7 +73,20 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #app_server against #ubuntuaccess with #ubuntuprotect",
-        "code": "# @mitigates #app_server against #ubuntuaccess with #ubuntuprotect\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @mitigates #app_server against #ubuntuaccess with #ubuntuprotect\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#infraprotect",
+      "threat": "#networkmap",
+      "component": "#app_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #app_server against #networkmap with #infraprotect",
+        "code": "# @mitigates #app_server against #networkmap with #infraprotect\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -120,6 +133,19 @@
       }
     },
     {
+      "threat": "#privilege_escalation",
+      "component": "#login",
+      "details": "#brute",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #login to privilege escalation with #brute",
+        "code": "# @exposes #login to privilege escalation with #brute\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
       "threat": "#out_of_service",
       "component": "#app_server",
       "details": "not using IDP",
@@ -127,7 +153,7 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #app_server to Out of service with not using IDP",
-        "code": "# @exposes #app_server to Out of service with not using IDP\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id\n",
+        "code": "# @exposes #app_server to Out of service with not using IDP\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_app_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -140,7 +166,7 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #sql_server to credential exposure with credentials stored unhashed",
-        "code": "# @exposes #sql_server to credential exposure with credentials stored unhashed\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @exposes #sql_server to credential exposure with credentials stored unhashed\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -200,7 +226,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #index with #login with HTTPs-POST",
-        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "code": "# @connects #index with #login with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -214,7 +240,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login with #index with HTTPs-POST",
-        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "code": "# @connects #login with #index with HTTPs-POST\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -662,7 +688,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sg_sql to #sql_server with Network traffic",
-        "code": "# @connects #sg_sql to #sql_server with Network traffic\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
+        "code": "# @connects #sg_sql to #sql_server with Network traffic\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -676,7 +702,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sql_server to #sg_sql with Network traffic",
-        "code": "# @connects #sql_server to #sg_sql with Network traffic\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
+        "code": "# @connects #sql_server to #sg_sql with Network traffic\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -690,7 +716,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclsql to #naclbastion with SSH_Responce",
-        "code": "# @connects #naclsql to #naclbastion with SSH_Responce\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n",
+        "code": "# @connects #naclsql to #naclbastion with SSH_Responce\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -704,7 +730,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclsql to #naclapp with SQL Responce",
-        "code": "# @connects #naclsql to #naclapp with SQL Responce\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n",
+        "code": "# @connects #naclsql to #naclapp with SQL Responce\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -754,5 +780,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "719d05b0b50d431da1d27b0a856d6180"
+  "run_id": "46f816c37adf49d2bdd024e8d3150311"
 }
