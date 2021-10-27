@@ -9,5 +9,7 @@ variable "var_ssh_key_name" {
 }
 
 variable "var_dns_zone_id" {
-  
+}
+
+variable "var_aws_vpc_id" {
 }
