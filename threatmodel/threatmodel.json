@@ -99,7 +99,20 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #bastion_server against #ssh with #ip",
-        "code": "# @mitigates #bastion_server against #ssh with #ip\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @mitigates #bastion_server against #ssh with #ip\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "control": "#devip",
+      "threat": "#ipport",
+      "component": "#bastion_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #bastion_server against #ipport with #devip",
+        "code": "# @mitigates #bastion_server against #ipport with #devip\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -875,7 +888,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sg_bastion to #bastion_server with SSH",
-        "code": "# @connects #sg_bastion to #bastion_server with SSH\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
+        "code": "# @connects #sg_bastion to #bastion_server with SSH\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -889,7 +902,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #bastion_server to #sg_bastion with SSH",
-        "code": "# @connects #bastion_server to #sg_bastion with SSH\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
+        "code": "# @connects #bastion_server to #sg_bastion with SSH\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -903,7 +916,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclbastion to #naclsql with SSH_Request",
-        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -911,5 +924,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0"
+  "run_id": "ffabceec8c6e4406873aeb5640213e2d"
 }

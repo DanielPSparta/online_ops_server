@@ -2,50 +2,57 @@
   "controls": {
     "#sanitise": {
       "id": "#sanitise",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "Sanitise SQL inputs",
       "description": "",
       "custom": {}
     },
     "#devprotect": {
       "id": "#devprotect",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "Strong passwords and security on developer pc",
       "description": "",
       "custom": {}
     },
     "#devtest": {
       "id": "#devtest",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "Jenkins test code before deployment and integration",
       "description": "",
       "custom": {}
     },
     "#portsniffdefense": {
       "id": "#portsniffdefense",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "Only listen on needed ports",
       "description": "",
       "custom": {}
     },
     "#ubuntuprotect": {
       "id": "#ubuntuprotect",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "only allow SSH connections to ubuntu user from specific ip",
       "description": "",
       "custom": {}
     },
     "#infraprotect": {
       "id": "#infraprotect",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "Use proxy server to access all servers in vpc",
       "description": "",
       "custom": {}
     },
     "#ip": {
       "id": "#ip",
-      "run_id": "09b9ab1c89ad4f50af172bf39f79c6d0",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
       "name": "NACL and security group IP check",
+      "description": "",
+      "custom": {}
+    },
+    "#devip": {
+      "id": "#devip",
+      "run_id": "ffabceec8c6e4406873aeb5640213e2d",
+      "name": "Only developer computer IP allowed through",
       "description": "",
       "custom": {}
     }

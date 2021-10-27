@@ -305,6 +305,20 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 # @mitigates #bastion_server against #ssh with #ip
 
+
+resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
+  ami = "ami-0943382e114f188e8"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Open ports on with public ip against TerraformAWS:bastion_Server mitigated by Only developer computer ip allowed through
+
+
+```
+# @mitigates #bastion_server against #ipport with #devip
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
   ami = "ami-0943382e114f188e8"
@@ -915,8 +929,8 @@ SSH
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -929,8 +943,8 @@ SSH
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -942,9 +956,9 @@ SSH_Request
 # @connects #naclbastion to #naclsql with SSH_Request
 
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1025,6 +1039,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Intruder ssh connection
 
 
+## Open ports on with public ip
+
+
 ## Out of scope
 
 
@@ -1065,3 +1082,5 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Use proxy server to access all servers in vpc
 
 ## Nacl and security group ip check
+
+## Only developer computer ip allowed through
