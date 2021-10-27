@@ -68,5 +68,5 @@ resource "aws_route53_record" "cyber94_calculator_2_dpook_webserver_dns_tf" {
   name = "www"
   type = "A"
   ttl = "30"
-  records = [aws_instance.cyber94_calculator_2_dpook_webserver_tf.public_ip]
+  records = aws_instance.cyber94_calculator_2_dpook_webserver_tf.*.public_ip
 }
