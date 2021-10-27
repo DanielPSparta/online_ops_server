@@ -9,6 +9,8 @@ module "vpc" {
 module "web_subnet" {
   source = "./modules/web_subnet"
 
+  var_internet_route_table = module.vpc.output_internet_route_table
+
   var_aws_vpc_id = module.vpc.output_aws_vpc_id
   var_dns_zone_id = module.vpc.output_dns_zone_id
 }

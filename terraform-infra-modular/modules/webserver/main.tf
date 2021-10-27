@@ -51,7 +51,7 @@ resource "aws_instance" "cyber94_calculator_2_dpook_webserver_tf" {
   ami = var.var_aws_ami_ubuntu_1804
   instance_type = "t2.micro"
   subnet_id = var.var_web_subnet_id
-  #count = 1
+  count = 2
   associate_public_ip_address = true
 
   key_name = var.var_ssh_key_name
@@ -59,7 +59,7 @@ resource "aws_instance" "cyber94_calculator_2_dpook_webserver_tf" {
   vpc_security_group_ids = [aws_security_group.cyber94_calculator_2_dpook_webserver_sg_tf.id]
 
   tags = {
-    Name = "cyber94_calculator_2_dpook_webserver"
+    Name = "cyber94_calculator_2_dpook_webserver_${count.index}"
   }
 }
 

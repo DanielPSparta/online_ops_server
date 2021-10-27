@@ -7,6 +7,27 @@ resource "aws_vpc" "cyber94_calculator_2_dpook_vpc_tf" {
   }
 }
 
+resource "aws_internet_gateway" "cyber94_calculator_2_dpook_ig_tf" {
+  vpc_id = aws_vpc.cyber94_calculator_2_dpook_vpc_tf.id
+
+  tags = {
+    Name = "cyber94_calculator_2_dpook_ig"
+  }
+}
+
+resource "aws_route_table" "cyber94_calculator_2_dpook_internet_rt_tf"  {
+  vpc_id = aws_vpc.cyber94_calculator_2_dpook_vpc_tf.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.cyber94_calculator_2_dpook_ig_tf.id
+  }
+
+
+  tags = {
+    Name = "cyber94_calculator_2_dpook_internet_rt"
+  }
+}
+
 resource "aws_route53_zone" "cyber94_calculator_2_dpook_vpc_dns_tf" {
   name = "cyber-5.sparta"
 

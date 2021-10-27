@@ -6,3 +6,9 @@ resource "aws_subnet" "cyber94_calculator_2_dpook_subnet_web_tf" {
     Name = "cyber94_calculator_2_dpook_subnet_web"
   }
 }
+
+resource "aws_route_table_association" "cyber94_calculator_2_dpook_subnet_web_assoc_tf" {
+  subnet_id = aws_subnet.cyber94_calculator_2_dpook_subnet_web_tf.id
+  route_table_id = var.var_internet_route_table
+
+}
