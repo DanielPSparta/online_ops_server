@@ -625,6 +625,10 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 # @threat intruder SSH connection (#ssh)
 # @mitigates #bastion_server against #ssh with #ip
 
+# @control Only developer computer IP allowed through (#devip)
+# @threat open ports on with public ip (#ipport)
+# @mitigates #bastion_server against #ipport with #devip
+
 # @mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect
 @mitigates #bastion_server against #networkmap with #infraprotect
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
