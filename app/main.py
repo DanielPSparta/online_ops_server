@@ -36,6 +36,14 @@ flask_app = Flask(__name__)
 # @connects #guest to #index with HTTPs-GET
 # @connects #index to #guest with HTTPs-GET
 
+# @threat Cross site scripting (reflected) (#xss)
+# @exposes #index to javascript manipulation with #xss
+
+# @threat Buffer overflow (#buffover)
+# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
+# @threat Absence of anti-CSRF tokens (reflected) (#csfr)
+# @exposes #index to tampering manipulation with #csrf
 
 @flask_app.route('/', methods = ['POST','GET'])
 def index_page():
@@ -167,6 +175,7 @@ def calculate2_post2():
     return make_response(jsonify(response_data))
 # @component CalcApp:Web_Server:logout (#logout)
 # @connects #index to #logout with HTTPs-POST
+# @connects #logout to #index with HTTPs-GET
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))

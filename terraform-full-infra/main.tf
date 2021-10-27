@@ -523,6 +523,9 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 # @threat Network mapping of cloud servers (#networkmap)
 # @mitigates #app_server against #networkmap with #infraprotect
 
+# @exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+# @exposes #app_server to tampering manipulation with #csrf
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
   ami = "ami-0943382e114f188e8"

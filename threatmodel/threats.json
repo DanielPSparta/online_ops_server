@@ -2,127 +2,162 @@
   "threats": {
     "#out": {
       "id": "#out",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Out of Scope",
       "description": "",
       "custom": {}
     },
     "#out_of_scope": {
       "id": "#out_of_scope",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Out of scope",
       "description": "",
       "custom": {}
     },
     "#sqlinjection": {
       "id": "#sqlinjection",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "##sqlinjection",
       "description": "",
       "custom": {}
     },
     "#private_inforamtion_disclosure": {
       "id": "#private_inforamtion_disclosure",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "private inforamtion disclosure",
       "description": "",
       "custom": {}
     },
     "#ddos": {
       "id": "#ddos",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "DDOS",
       "description": "",
       "custom": {}
     },
     "#out_of_service": {
       "id": "#out_of_service",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Out of service",
       "description": "",
       "custom": {}
     },
     "#credential": {
       "id": "#credential",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "credentials exposed in plain text",
       "description": "",
       "custom": {}
     },
     "#credential_exposure": {
       "id": "#credential_exposure",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "credential exposure",
       "description": "",
       "custom": {}
     },
     "#ssh": {
       "id": "#ssh",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "intruder SSH connection",
       "description": "",
       "custom": {}
     },
     "#elevation_of_privialge": {
       "id": "#elevation_of_privialge",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "elevation of privialge",
       "description": "",
       "custom": {}
     },
     "#devintruder": {
       "id": "#devintruder",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Intruder on developer pc, elevation of privilege",
       "description": "",
       "custom": {}
     },
     "#devbroke": {
       "id": "#devbroke",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "uploading broken code",
       "description": "",
       "custom": {}
     },
     "#devtamper": {
       "id": "#devtamper",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Intruder on developer pc, tampering with source code",
       "description": "",
       "custom": {}
     },
     "#portsniff": {
       "id": "#portsniff",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Port sniffing for open ports",
       "description": "",
       "custom": {}
     },
     "#ubuntuaccess": {
       "id": "#ubuntuaccess",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "access to ubuntu allows access to database",
       "description": "",
       "custom": {}
     },
     "#brute": {
       "id": "#brute",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Brute force attack",
       "description": "",
       "custom": {}
     },
     "#privilege_escalation": {
       "id": "#privilege_escalation",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "privilege escalation",
       "description": "",
       "custom": {}
     },
     "#networkmap": {
       "id": "#networkmap",
-      "run_id": "46f816c37adf49d2bdd024e8d3150311",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
       "name": "Network mapping of cloud servers",
+      "description": "",
+      "custom": {}
+    },
+    "#reflected": {
+      "id": "#reflected",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
+      "name": "Absence of anti-CSRF tokens",
+      "description": "",
+      "custom": {}
+    },
+    "#javascript_manipulation": {
+      "id": "#javascript_manipulation",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
+      "name": "javascript manipulation",
+      "description": "",
+      "custom": {}
+    },
+    "#buffover": {
+      "id": "#buffover",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
+      "name": "Buffer overflow",
+      "description": "",
+      "custom": {}
+    },
+    "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error": {
+      "id": "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
+      "name": "overwriting memory of backend web processes. throws sevrer 500 error",
+      "description": "",
+      "custom": {}
+    },
+    "#tampering_manipulation": {
+      "id": "#tampering_manipulation",
+      "run_id": "4b692ddf06264126981263b53981a3a9",
+      "name": "tampering manipulation",
       "description": "",
       "custom": {}
     }

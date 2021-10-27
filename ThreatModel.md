@@ -24,6 +24,48 @@ def verify_token(token):
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Javascript manipulation against CalcApp:Web_Server:Index
+#xss
+
+```
+# @exposes #index to javascript manipulation with #xss
+
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Overwriting memory of backend web processes. throws sevrer 500 error against CalcApp:Web_Server:Index
+#buffover
+
+```
+# @exposes #index to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+    print(request.headers)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Tampering manipulation against CalcApp:Web_Server:Index
+#csrf
+
+```
+# @exposes #index to tampering manipulation with #csrf
+
+@flask_app.route('/', methods = ['POST','GET'])
+def index_page():
+    print(request.headers)
+    isUserLoggedIn = False
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Privilege escalation against CalcApp:Web_Server:Login
 #brute
 
@@ -47,7 +89,35 @@ Not using idp
 
 
 
+
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Overwriting memory of backend web processes. throws sevrer 500 error against TerraformAWS:Web_Server
+#buffover
+
+```
+# @exposes #app_server to overwriting memory of backend web processes. throws sevrer 500 error with #buffover
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Tampering manipulation against TerraformAWS:Web_Server
+#csrf
+
+```
+# @exposes #app_server to tampering manipulation with #csrf
+
+resource "aws_instance" "cyber94_full_dpook_app_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -139,8 +209,8 @@ resource "aws_vpc" "cyber94_full_dpook_vpc_tf" {
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -152,9 +222,9 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 # @mitigates #app_server against #ubuntuaccess with #ubuntuprotect
 
 
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -165,10 +235,10 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 # @mitigates #app_server against #networkmap with #infraprotect
 
+
 resource "aws_instance" "cyber94_full_dpook_app_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_app_tf.id
   ami = "ami-0943382e114f188e8"
-  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -215,8 +285,8 @@ Hosting
 
 
 
-@flask_app.route('/', methods = ['POST','GET'])
-def index_page():
+
+
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -228,9 +298,9 @@ HTTPs-GET
 # @connects #guest to #index with HTTPs-GET
 
 
+
+
 @flask_app.route('/', methods = ['POST','GET'])
-def index_page():
-    print(request.headers)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -242,9 +312,9 @@ HTTPs-GET
 # @connects #index to #guest with HTTPs-GET
 
 
+
+
 @flask_app.route('/', methods = ['POST','GET'])
-def index_page():
-    print(request.headers)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -352,6 +422,20 @@ HTTPs-POST
 
 ```
 # @connects #index to #logout with HTTPs-POST
+@flask_app.route('/logout', methods = ['POST','GET'])
+def logout():
+    resp = make_response(render_template('login.html'))
+    return resp
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## CalcApp:Web_Server:logout To CalcApp:Web_Server:Index
+HTTPs-GET
+
+```
+# @connects #logout to #index with HTTPs-GET
 @flask_app.route('/logout', methods = ['POST','GET'])
 def logout():
     resp = make_response(render_template('login.html'))
@@ -822,9 +906,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## Internet:Guest
 
-## TerraformAWS:SQL_Server
-
 ## CalcApp:Web_Server:Index
+
+## TerraformAWS:SQL_Server
 
 ## CalcApp:Web_Server:Accountcreation
 
@@ -886,6 +970,15 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 
 ## Out of scope
+
+
+## Javascript manipulation
+
+
+## Overwriting memory of backend web processes. throws sevrer 500 error
+
+
+## Tampering manipulation
 
 
 ## Privilege escalation
