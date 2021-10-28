@@ -614,10 +614,10 @@ HTTPs-POST
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Index With CalcApp:Web_Server:Login
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #index with #login with HTTPs-POST
+# @connects #index with #login with HTTPs-POST link
 
 
 
@@ -628,10 +628,10 @@ HTTPs-POST
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Login With CalcApp:Web_Server:Index
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #login with #index with HTTPs-POST
+# @connects #login with #index with HTTPs-POST link
 
 
 
@@ -670,10 +670,10 @@ HTTPs-POST
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Accountcreation With CalcApp:Web_Server:Accountcreated
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #ac with #acd with HTTPs-POST
+# @connects #ac with #acd with HTTPs-POST link
 
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
@@ -684,10 +684,10 @@ def addlogin_page():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Login With CalcApp:Web_Server:Accountcreation
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #login with #ac with HTTPs-POST
+# @connects #login with #ac with HTTPs-POST link
 
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
@@ -726,10 +726,10 @@ def addlogin_page():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Accountcreated With CalcApp:Web_Server:Login
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #acd with #login with HTTPs-POST
+# @connects #acd with #login with HTTPs-POST link
 
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
@@ -740,10 +740,10 @@ def accountcreated_page():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## Internet:Guest To CalcApp:Web_Server:Accountcreated
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #guest to #acd with HTTPs-POST
+# @connects #guest to #acd with HTTPs-POST link
 
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
@@ -768,10 +768,10 @@ def accountcreated_page():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Login To CalcApp:Web_Server:Authenticated
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #login to #auth with HTTPs-POST
+# @connects #login to #auth with HTTPs-POST link
 
 
 def authenticate_users():
@@ -782,10 +782,10 @@ def authenticate_users():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Authenticated To CalcApp:Web_Server:Index
-HTTPS-GET
+HTTPS-GET link
 
 ```
-# @connects #auth to #index with HTTPS-GET
+# @connects #auth to #index with HTTPS-GET link
 
 
 def authenticate_users():
@@ -824,10 +824,10 @@ def authenticate_users():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Results To CalcApp:Web_Server:Index
-HTTPs-get
+HTTPs-get link
 
 ```
-# @connects #results to #index with HTTPs-get
+# @connects #results to #index with HTTPs-get link
 
 
 def results_users():
@@ -838,10 +838,10 @@ def results_users():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Index To CalcApp:Web_Server:Results
-HTTPS-POST
+HTTPS-POST link
 
 ```
-# @connects #index to #results with HTTPS-POST
+# @connects #index to #results with HTTPS-POST link
 
 
 def results_users():
@@ -880,10 +880,10 @@ def results_users():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:Index To CalcApp:Web_Server:logout
-HTTPs-POST
+HTTPs-POST link
 
 ```
-# @connects #index to #logout with HTTPs-POST
+# @connects #index to #logout with HTTPs-POST link
 
 
 @flask_app.route('/logout', methods = ['POST','GET'])
@@ -894,10 +894,10 @@ def logout():
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
 ## CalcApp:Web_Server:logout To CalcApp:Web_Server:Index
-HTTPs-GET
+HTTPs-GET link
 
 ```
-# @connects #logout to #index with HTTPs-GET
+# @connects #logout to #index with HTTPs-GET link
 
 
 @flask_app.route('/logout', methods = ['POST','GET'])
