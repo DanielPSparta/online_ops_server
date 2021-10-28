@@ -613,34 +613,6 @@ HTTPs-POST
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## CalcApp:Web_Server:Index With CalcApp:Web_Server:Login
-link
-
-```
-# @connects #index with #login with link
-
-
-
-
-
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Login With CalcApp:Web_Server:Index
-link
-
-```
-# @connects #login with #index with link
-
-
-
-
-
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
 ## Internet:Guest To CalcApp:Web_Server:Login
 HTTPs-POST
 
@@ -664,34 +636,6 @@ HTTPs-POST
 
 
 
-
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Accountcreation With CalcApp:Web_Server:Accountcreated
-link
-
-```
-# @connects #ac with #acd with link
-
-@flask_app.route('/addlogin', methods = ['POST'])
-def addlogin_page():
-    return render_template('addlogin.html')
-
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Login With CalcApp:Web_Server:Accountcreation
-link
-
-```
-# @connects #login with #ac with link
-
-@flask_app.route('/addlogin', methods = ['POST'])
-def addlogin_page():
-    return render_template('addlogin.html')
 
 
 ```
@@ -725,25 +669,11 @@ def addlogin_page():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## CalcApp:Web_Server:Accountcreated With CalcApp:Web_Server:Login
-link
-
-```
-# @connects #acd with #login with link
-
-@flask_app.route('/accountcreated', methods = ['POST'])
-def accountcreated_page():
-
-    password = data['password']
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
 ## Internet:Guest To CalcApp:Web_Server:Accountcreated
-link
+HTTPs-GET
 
 ```
-# @connects #guest to #acd with link
+# @connects #guest to #acd with HTTPs-GET
 
 @flask_app.route('/accountcreated', methods = ['POST'])
 def accountcreated_page():
@@ -763,34 +693,6 @@ HTTPs-POST
 def accountcreated_page():
 
     password = data['password']
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Login To CalcApp:Web_Server:Authenticated
-link
-
-```
-# @connects #login to #auth with link
-
-
-def authenticate_users():
-    password = data['password']
-    check = sq.check_user_in_db(username,password)
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Authenticated To CalcApp:Web_Server:Index
-link
-
-```
-# @connects #auth to #index with link
-
-
-def authenticate_users():
-    password = data['password']
-    check = sq.check_user_in_db(username,password)
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -823,34 +725,6 @@ def authenticate_users():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## CalcApp:Web_Server:Results To CalcApp:Web_Server:Index
-link
-
-```
-# @connects #results to #index with link
-
-
-def results_users():
-    num2 = float(data['number2'])
-    operation = request.form.get('operation')
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Index To CalcApp:Web_Server:Results
-link
-
-```
-# @connects #index to #results with link
-
-
-def results_users():
-    num2 = float(data['number2'])
-    operation = request.form.get('operation')
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
 ## Internet:AuthenticatedUser To CalcApp:Web_Server:Results
 HTTPs-POST
 
@@ -875,34 +749,6 @@ def results_users():
     num2 = float(data['number2'])
     operation = request.form.get('operation')
 
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:Index To CalcApp:Web_Server:logout
-link
-
-```
-# @connects #index to #logout with link
-
-
-@flask_app.route('/logout', methods = ['POST','GET'])
-def logout():
-    resp = make_response(render_template('login.html'))
-
-```
-/home/kali/cyber/projects2/online_ops/app/main.py:1
-
-## CalcApp:Web_Server:logout To CalcApp:Web_Server:Index
-link
-
-```
-# @connects #logout to #index with link
-
-
-@flask_app.route('/logout', methods = ['POST','GET'])
-def logout():
-    resp = make_response(render_template('login.html'))
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1

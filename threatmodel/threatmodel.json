@@ -559,34 +559,6 @@
       }
     },
     {
-      "source_component": "#index",
-      "destination_component": "#login",
-      "direction": "with",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #index with #login with link",
-        "code": "# @connects #index with #login with link\n\n\n\n\n\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#login",
-      "destination_component": "#index",
-      "direction": "with",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #login with #index with link",
-        "code": "# @connects #login with #index with link\n\n\n\n\n\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
       "source_component": "#guest",
       "destination_component": "#login",
       "direction": "to",
@@ -610,34 +582,6 @@
       "source": {
         "annotation": "@connects #login to #guest with HTTPs-POST",
         "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\n\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#ac",
-      "destination_component": "#acd",
-      "direction": "with",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #ac with #acd with link",
-        "code": "# @connects #ac with #acd with link\n\n@flask_app.route('/addlogin', methods = ['POST'])\ndef addlogin_page():\n    return render_template('addlogin.html')\n\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#login",
-      "destination_component": "#ac",
-      "direction": "with",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #login with #ac with link",
-        "code": "# @connects #login with #ac with link\n\n@flask_app.route('/addlogin', methods = ['POST'])\ndef addlogin_page():\n    return render_template('addlogin.html')\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -671,29 +615,15 @@
       }
     },
     {
-      "source_component": "#acd",
-      "destination_component": "#login",
-      "direction": "with",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #acd with #login with link",
-        "code": "# @connects #acd with #login with link\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
       "source_component": "#guest",
       "destination_component": "#acd",
       "direction": "to",
-      "details": "link",
+      "details": "HTTPs-GET",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@connects #guest to #acd with link",
-        "code": "# @connects #guest to #acd with link\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
+        "annotation": "@connects #guest to #acd with HTTPs-GET",
+        "code": "# @connects #guest to #acd with HTTPs-GET\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -708,34 +638,6 @@
       "source": {
         "annotation": "@connects #acd to #guest with HTTPs-POST",
         "code": "# @connects #acd to #guest with HTTPs-POST\n\n@flask_app.route('/accountcreated', methods = ['POST'])\ndef accountcreated_page():\n\n    password = data['password']\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#login",
-      "destination_component": "#auth",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #login to #auth with link",
-        "code": "# @connects #login to #auth with link\n\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#auth",
-      "destination_component": "#index",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #auth to #index with link",
-        "code": "# @connects #auth to #index with link\n\n\ndef authenticate_users():\n    password = data['password']\n    check = sq.check_user_in_db(username,password)\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -769,34 +671,6 @@
       }
     },
     {
-      "source_component": "#results",
-      "destination_component": "#index",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #results to #index with link",
-        "code": "# @connects #results to #index with link\n\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#index",
-      "destination_component": "#results",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #index to #results with link",
-        "code": "# @connects #index to #results with link\n\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
       "source_component": "#auser",
       "destination_component": "#results",
       "direction": "to",
@@ -820,34 +694,6 @@
       "source": {
         "annotation": "@connects #results to #auser with HTTPs-POST",
         "code": "# @connects #results to #auser with HTTPs-POST\n\ndef results_users():\n    num2 = float(data['number2'])\n    operation = request.form.get('operation')\n\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#index",
-      "destination_component": "#logout",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #index to #logout with link",
-        "code": "# @connects #index to #logout with link\n\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n",
-        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
-        "line": 1
-      }
-    },
-    {
-      "source_component": "#logout",
-      "destination_component": "#index",
-      "direction": "to",
-      "details": "link",
-      "description": "",
-      "custom": {},
-      "source": {
-        "annotation": "@connects #logout to #index with link",
-        "code": "# @connects #logout to #index with link\n\n\n@flask_app.route('/logout', methods = ['POST','GET'])\ndef logout():\n    resp = make_response(render_template('login.html'))\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -1331,5 +1177,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "9b961e94d2b34c06a1166f84c8bb22e9"
+  "run_id": "853f148a8aa8475d8b7df5fcf63c4ab3"
 }
