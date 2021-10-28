@@ -86,8 +86,8 @@ def index_page():
         return resp
 
 # @component CalcApp:Web_Server:Login (#login)
-# @connects #index with #login with HTTPs-POST link
-# @connects #login with #index with HTTPs-POST link
+# @connects #index with #login with link
+# @connects #login with #index with link
 # @connects #guest to #login with HTTPs-POST
 # @connects #login to #guest with HTTPs-POST
 
@@ -118,8 +118,8 @@ def index2_page():
     return render_template('index.html')
 
 # @component CalcApp:Web_Server:Accountcreation (#ac)
-# @connects #ac with #acd with HTTPs-POST link
-# @connects #login with #ac with HTTPs-POST link
+# @connects #ac with #acd with link
+# @connects #login with #ac with link
 # @connects #guest to #ac with HTTPs-POST
 # @connects #ac to #guest with HTTPs-POST
 # @mitigates #ac against ##sqlinjection with #sanitise
@@ -130,8 +130,8 @@ def addlogin_page():
     return render_template('addlogin.html')
 
 # @component CalcApp:Web_Server:Accountcreated (#acd)
-# @connects #acd with #login with HTTPs-POST link
-# @connects #guest to #acd with HTTPs-POST link
+# @connects #acd with #login with link
+# @connects #guest to #acd with link
 # @connects #acd to #guest with HTTPs-POST
 
 @flask_app.route('/accountcreated', methods = ['POST'])
@@ -150,8 +150,8 @@ def accountcreated_page():
         return render_template('accountcreated.html')
 
 # @component CalcApp:Web_Server:Authenticated (#auth)
-# @connects #login to #auth with HTTPs-POST link
-# @connects #auth to #index with HTTPS-GET link
+# @connects #login to #auth with link
+# @connects #auth to #index with link
 
 # @connects #auser to #auth with HTTPs-POST
 # @connects #auth to #auser with HTTPs-POST
@@ -187,8 +187,8 @@ def calculator_get():
 
 # @component CalcApp:Web_Server:Results (#results)
 
-# @connects #results to #index with HTTPs-get link
-# @connects #index to #results with HTTPS-POST link
+# @connects #results to #index with link
+# @connects #index to #results with link
 
 # @connects #auser to #results with HTTPs-POST
 # @connects #results to #auser with HTTPs-POST
@@ -225,8 +225,8 @@ def calculate2_post2():
     }
     return make_response(jsonify(response_data))
 # @component CalcApp:Web_Server:logout (#logout)
-# @connects #index to #logout with HTTPs-POST link
-# @connects #logout to #index with HTTPs-GET link
+# @connects #index to #logout with link
+# @connects #logout to #index with link
 
 # @connects #auser to #logout with HTTPs-GET
 # @connects #logout to #auser with HTTPs-GET
