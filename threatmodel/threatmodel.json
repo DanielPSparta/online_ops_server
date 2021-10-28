@@ -8,7 +8,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #login against #sqlinjection with #sanitise",
-        "code": "# @mitigates #login against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "code": "# @mitigates #login against #sqlinjection with #sanitise\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -21,7 +21,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #sql_server against #sqlinjection with #sanitise",
-        "code": "# @mitigates #sql_server against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "code": "# @mitigates #sql_server against #sqlinjection with #sanitise\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -34,7 +34,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #index against #sqlinjection with #sanitise",
-        "code": "# @mitigates #index against #sqlinjection with #sanitise\n\n\n\n\ndef login_page():\n",
+        "code": "# @mitigates #index against #sqlinjection with #sanitise\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -290,13 +290,13 @@
     },
     {
       "threat": "#tampering_manipulation",
-      "component": "#authenticated",
+      "component": "#ac",
       "details": "#csrf",
       "description": "",
       "custom": {},
       "source": {
-        "annotation": "@exposes #authenticated to tampering manipulation with #csrf",
-        "code": "# @exposes #authenticated to tampering manipulation with #csrf\n\n\n\n\n\n",
+        "annotation": "@exposes #ac to tampering manipulation with #csrf",
+        "code": "# @exposes #ac to tampering manipulation with #csrf\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -510,7 +510,78 @@
       }
     }
   ],
-  "transfers": [],
+  "transfers": [
+    {
+      "threat": "#sqlinjection",
+      "source_component": "#login",
+      "destination_component": "#sql_server",
+      "details": "developer not checking the input",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@transfers #sqlinjection from #login to #sql_server with developer not checking the input",
+        "code": "# @transfers #sqlinjection from #login to #sql_server with developer not checking the input\n\n\n\ndef login_page():\n    return render_template('login.html')\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#brute",
+      "source_component": "#login",
+      "destination_component": "#sql_server",
+      "details": "developer not checking the input",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@transfers #brute from #login to #sql_server with developer not checking the input",
+        "code": "# @transfers #brute from #login to #sql_server with developer not checking the input\n\n\ndef login_page():\n    return render_template('login.html')\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#devintruder",
+      "source_component": "#bastion_server",
+      "destination_component": "#sql_server",
+      "details": "developer computer infected",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@transfers #devintruder from #bastion_server to #sql_server with developer computer infected",
+        "code": "# @transfers #devintruder from #bastion_server to #sql_server with developer computer infected\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#devintruder",
+      "source_component": "#dev",
+      "destination_component": "#app_server",
+      "details": "developer computer infected",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@transfers #devintruder from #dev to #app_server with developer computer infected",
+        "code": "# @transfers #devintruder from #dev to #app_server with developer computer infected\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#devintruder",
+      "source_component": "#dev",
+      "destination_component": "#bastion_server",
+      "details": "developer computer infected",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@transfers #devintruder from #dev to #bastion_server with developer computer infected",
+        "code": "# @transfers #devintruder from #dev to #bastion_server with developer computer infected\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    }
+  ],
   "acceptances": [],
   "connections": [
     {
@@ -620,7 +691,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #guest to #login with HTTPs-POST",
-        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #guest to #login with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -634,7 +705,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #login to #guest with HTTPs-POST",
-        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\n\n",
+        "code": "# @connects #login to #guest with HTTPs-POST\n\n\n\n\ndef login_page():\n",
         "filename": "/home/kali/cyber/projects2/online_ops/app/main.py",
         "line": 1
       }
@@ -1300,5 +1371,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "400ade2e5d064d91ac66124be6597e6e"
+  "run_id": "f0e3f05009d649ddb57e345a5a844854"
 }

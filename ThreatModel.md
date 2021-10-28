@@ -122,11 +122,11 @@ def verify_token(token):
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
-## Tampering manipulation against 
+## Tampering manipulation against CalcApp:Web_Server:Accountcreation
 #csrf
 
 ```
-# @exposes #authenticated to tampering manipulation with #csrf
+# @exposes #ac to tampering manipulation with #csrf
 
 
 
@@ -377,8 +377,8 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 
 
-
 def login_page():
+    return render_template('login.html')
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -391,8 +391,8 @@ def login_page():
 
 
 
-
 def login_page():
+    return render_template('login.html')
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -405,8 +405,8 @@ def login_page():
 
 
 
-
 def login_page():
+    return render_template('login.html')
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -678,7 +678,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -692,7 +692,7 @@ HTTPs-POST
 
 
 
-
+def login_page():
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
@@ -1378,8 +1378,6 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 ## CalcApp:Web_Server:Results
 
-## 
-
 ## CalcApp:Web_Server:logout
 
 ## Developer_Computer:Jenkins:Dockerhub:Container
@@ -1467,6 +1465,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 
 
 ## Credential exposure
+
+
+## Brute force attack
 
 
 

@@ -22,6 +22,9 @@ terraform {
 # @control Strong passwords and security on developer pc (#devprotect)
 # @threat Intruder on developer pc, elevation of privilege (#devintruder)
 # @mitigates #dev against #devintruder with #devprotect
+# @transfers #devintruder from #bastion_server to #sql_server with developer computer infected
+# @transfers #devintruder from #dev to #app_server with developer computer infected
+# @transfers #devintruder from #dev to #bastion_server with developer computer infected
 
 # @control Jenkins test code before deployment and integration (#devtest)
 # @threat uploading broken code (#devbroke)
