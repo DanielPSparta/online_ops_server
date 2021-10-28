@@ -511,6 +511,9 @@ resource "aws_security_group" "cyber94_full_dpook_sg_bastion_tf" {
 # @threat DDOS (#ddos)
 # @exposes #app_server to Out of service with not using IDP
 
+# @threat IP exposure (#ipexposure)
+# @exposes #app_server to #ipexposure with not using a DNS server of proxy server
+
 # @control Only listen on needed ports (#portsniffdefense)
 # @threat Port sniffing for open ports (#portsniff)
 # @mitigates #app_server against #portsniff with #portsniffdefense
@@ -600,6 +603,10 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 # @threat credentials exposed in plain text (#credential)
 # @exposes #sql_server to credential exposure with credentials stored unhashed
 
+# @control NOt connected to public IP address or route table (#privateip)
+# @threat @threat IP exposure (#ipexposure)
+# @mitigates #sql_server against #ipexposure with #privateip
+
 #sql_server_server against #networkmap with #infraprotect
 
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
@@ -628,6 +635,9 @@ resource "aws_instance" "cyber94_full_dpook_db_tf" {
 # @control Only developer computer IP allowed through (#devip)
 # @threat open ports on with public ip (#ipport)
 # @mitigates #bastion_server against #ipport with #devip
+
+# @threat IP exposure (#ipexposure)
+# @exposes #bastion_server to #ipexposure with not using a DNS server of proxy server
 
 # @mitigates #bastion_server against #ubuntuaccess with #ubuntuprotect
 @mitigates #bastion_server against #networkmap with #infraprotect

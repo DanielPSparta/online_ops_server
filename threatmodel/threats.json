@@ -2,176 +2,183 @@
   "threats": {
     "#out": {
       "id": "#out",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Out of Scope",
       "description": "",
       "custom": {}
     },
     "#out_of_scope": {
       "id": "#out_of_scope",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Out of scope",
       "description": "",
       "custom": {}
     },
     "#reflected": {
       "id": "#reflected",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Cross site scripting",
       "description": "",
       "custom": {}
     },
     "#javascript_manipulation": {
       "id": "#javascript_manipulation",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "javascript manipulation",
       "description": "",
       "custom": {}
     },
     "#buffover": {
       "id": "#buffover",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Buffer overflow",
       "description": "",
       "custom": {}
     },
     "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error": {
       "id": "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "overwriting memory of backend web processes. throws sevrer 500 error",
       "description": "",
       "custom": {}
     },
     "#csfr": {
       "id": "#csfr",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Absence of anti-CSRF tokens",
       "description": "",
       "custom": {}
     },
     "#tampering_manipulation": {
       "id": "#tampering_manipulation",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "tampering manipulation",
       "description": "",
       "custom": {}
     },
     "#cache": {
       "id": "#cache",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "No cache control header set",
       "description": "",
       "custom": {}
     },
     "#information_disclosure": {
       "id": "#information_disclosure",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "information disclosure",
       "description": "",
       "custom": {}
     },
     "#sqlinjection": {
       "id": "#sqlinjection",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "##sqlinjection",
       "description": "",
       "custom": {}
     },
     "#brute": {
       "id": "#brute",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Brute force attack",
       "description": "",
       "custom": {}
     },
     "#privilege_escalation": {
       "id": "#privilege_escalation",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "privilege escalation",
       "description": "",
       "custom": {}
     },
     "#devintruder": {
       "id": "#devintruder",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Intruder on developer pc, elevation of privilege",
       "description": "",
       "custom": {}
     },
     "#devbroke": {
       "id": "#devbroke",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "uploading broken code",
       "description": "",
       "custom": {}
     },
     "#devtamper": {
       "id": "#devtamper",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Intruder on developer pc, tampering with source code",
       "description": "",
       "custom": {}
     },
     "#ddos": {
       "id": "#ddos",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "DDOS",
       "description": "",
       "custom": {}
     },
     "#out_of_service": {
       "id": "#out_of_service",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Out of service",
       "description": "",
       "custom": {}
     },
     "#portsniff": {
       "id": "#portsniff",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Port sniffing for open ports",
       "description": "",
       "custom": {}
     },
     "#ubuntuaccess": {
       "id": "#ubuntuaccess",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "access to ubuntu allows access to database",
       "description": "",
       "custom": {}
     },
     "#networkmap": {
       "id": "#networkmap",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Network mapping of cloud servers",
       "description": "",
       "custom": {}
     },
     "#credential": {
       "id": "#credential",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "credentials exposed in plain text",
       "description": "",
       "custom": {}
     },
     "#credential_exposure": {
       "id": "#credential_exposure",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "credential exposure",
       "description": "",
       "custom": {}
     },
     "#ssh": {
       "id": "#ssh",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "intruder SSH connection",
       "description": "",
       "custom": {}
     },
     "#ipport": {
       "id": "#ipport",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "open ports on with public ip",
+      "description": "",
+      "custom": {}
+    },
+    "#ipexposure": {
+      "id": "#ipexposure",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
+      "name": "IP exposure",
       "description": "",
       "custom": {}
     }

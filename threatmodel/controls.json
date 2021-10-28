@@ -2,57 +2,64 @@
   "controls": {
     "#sanitise": {
       "id": "#sanitise",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Sanitise SQL inputs",
       "description": "",
       "custom": {}
     },
     "#devprotect": {
       "id": "#devprotect",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Strong passwords and security on developer pc",
       "description": "",
       "custom": {}
     },
     "#devtest": {
       "id": "#devtest",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Jenkins test code before deployment and integration",
       "description": "",
       "custom": {}
     },
     "#portsniffdefense": {
       "id": "#portsniffdefense",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Only listen on needed ports",
       "description": "",
       "custom": {}
     },
     "#ubuntuprotect": {
       "id": "#ubuntuprotect",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "only allow SSH connections to ubuntu user from specific ip",
       "description": "",
       "custom": {}
     },
     "#infraprotect": {
       "id": "#infraprotect",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Use proxy server to access all servers in vpc",
       "description": "",
       "custom": {}
     },
     "#ip": {
       "id": "#ip",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "NACL and security group IP check",
       "description": "",
       "custom": {}
     },
     "#devip": {
       "id": "#devip",
-      "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
       "name": "Only developer computer IP allowed through",
+      "description": "",
+      "custom": {}
+    },
+    "#privateip": {
+      "id": "#privateip",
+      "run_id": "400ade2e5d064d91ac66124be6597e6e",
+      "name": "NOt connected to public IP address or route table",
       "description": "",
       "custom": {}
     }

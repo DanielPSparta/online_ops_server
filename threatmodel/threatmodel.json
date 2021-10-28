@@ -131,6 +131,19 @@
       }
     },
     {
+      "control": "#privateip",
+      "threat": "#ipexposure",
+      "component": "#sql_server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@mitigates #sql_server against #ipexposure with #privateip",
+        "code": "# @mitigates #sql_server against #ipexposure with #privateip\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
       "control": "#ip",
       "threat": "#ssh",
       "component": "#bastion_server",
@@ -138,7 +151,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #bastion_server against #ssh with #ip",
-        "code": "# @mitigates #bastion_server against #ssh with #ip\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
+        "code": "# @mitigates #bastion_server against #ssh with #ip\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -151,7 +164,7 @@
       "custom": {},
       "source": {
         "annotation": "@mitigates #bastion_server against #ipport with #devip",
-        "code": "# @mitigates #bastion_server against #ipport with #devip\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
+        "code": "# @mitigates #bastion_server against #ipport with #devip\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -432,6 +445,19 @@
       }
     },
     {
+      "threat": "#ipexposure",
+      "component": "#app_server",
+      "details": "not using a DNS server of proxy server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #app_server to #ipexposure with not using a DNS server of proxy server",
+        "code": "# @exposes #app_server to #ipexposure with not using a DNS server of proxy server\n\n\n\n\n\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
       "threat": "#overwriting_memory_of_backend_web_processes_throws_sevrer_500_error",
       "component": "#app_server",
       "details": "#buffover",
@@ -465,7 +491,20 @@
       "custom": {},
       "source": {
         "annotation": "@exposes #sql_server to credential exposure with credentials stored unhashed",
-        "code": "# @exposes #sql_server to credential exposure with credentials stored unhashed\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n  ami = \"ami-0d1c7c4de1f4cdc9a\"\n",
+        "code": "# @exposes #sql_server to credential exposure with credentials stored unhashed\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
+        "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
+        "line": 1
+      }
+    },
+    {
+      "threat": "#ipexposure",
+      "component": "#bastion_server",
+      "details": "not using a DNS server of proxy server",
+      "description": "",
+      "custom": {},
+      "source": {
+        "annotation": "@exposes #bastion_server to #ipexposure with not using a DNS server of proxy server",
+        "code": "# @exposes #bastion_server to #ipexposure with not using a DNS server of proxy server\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n  ami = \"ami-0943382e114f188e8\"\n  instance_type = \"t2.micro\"\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1169,7 +1208,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sg_sql to #sql_server with SSH,3306",
-        "code": "# @connects #sg_sql to #sql_server with SSH,3306\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
+        "code": "# @connects #sg_sql to #sql_server with SSH,3306\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1183,7 +1222,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sql_server to #sg_sql with SSH 3306",
-        "code": "# @connects #sql_server to #sg_sql with SSH 3306\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
+        "code": "# @connects #sql_server to #sg_sql with SSH 3306\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1197,7 +1236,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclsql to #naclbastion with SSH_Responce",
-        "code": "# @connects #naclsql to #naclbastion with SSH_Responce\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
+        "code": "# @connects #naclsql to #naclbastion with SSH_Responce\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1211,7 +1250,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclsql to #naclapp with SQL Responce",
-        "code": "# @connects #naclsql to #naclapp with SQL Responce\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id\n",
+        "code": "# @connects #naclsql to #naclapp with SQL Responce\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_db_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1225,7 +1264,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #sg_bastion to #bastion_server with SSH",
-        "code": "# @connects #sg_bastion to #bastion_server with SSH\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n",
+        "code": "# @connects #sg_bastion to #bastion_server with SSH\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1239,7 +1278,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #bastion_server to #sg_bastion with SSH",
-        "code": "# @connects #bastion_server to #sg_bastion with SSH\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n",
+        "code": "# @connects #bastion_server to #sg_bastion with SSH\n\n\n\n\n\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1253,7 +1292,7 @@
       "custom": {},
       "source": {
         "annotation": "@connects #naclbastion to #naclsql with SSH_Request",
-        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id\n",
+        "code": "# @connects #naclbastion to #naclsql with SSH_Request\n\n\n\n\nresource \"aws_instance\" \"cyber94_full_dpook_bastion_tf\" {\n",
         "filename": "/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf",
         "line": 1
       }
@@ -1261,5 +1300,5 @@
   ],
   "reviews": [],
   "tests": [],
-  "run_id": "55cad37ab6f84bfeb35a5b5ac90f26a5"
+  "run_id": "400ade2e5d064d91ac66124be6597e6e"
 }

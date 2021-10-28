@@ -290,6 +290,20 @@ Not using idp
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
+## Ip exposure against Jenkins:TerraformAWS:Web_Server
+Not using a dns server of proxy server
+
+```
+# @exposes #app_server to #ipexposure with not using a DNS server of proxy server
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
 ## Overwriting memory of backend web processes. throws sevrer 500 error against Jenkins:TerraformAWS:Web_Server
 #buffover
 
@@ -325,9 +339,23 @@ Credentials stored unhashed
 # @exposes #sql_server to credential exposure with credentials stored unhashed
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
-  ami = "ami-0d1c7c4de1f4cdc9a"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
+## Ip exposure against Jenkins:TerraformAWS:bastion_Server
+Not using a dns server of proxy server
+
+```
+# @exposes #bastion_server to #ipexposure with not using a DNS server of proxy server
+
+resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
+  ami = "ami-0943382e114f188e8"
+  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -481,6 +509,20 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
 
+## Ip exposure against Jenkins:TerraformAWS:SQL_Server mitigated by Not connected to public ip address or route table
+
+
+```
+# @mitigates #sql_server against #ipexposure with #privateip
+
+
+resource "aws_instance" "cyber94_full_dpook_db_tf" {
+  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
+  ami = "ami-0d1c7c4de1f4cdc9a"
+
+```
+/home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
+
 ## Intruder ssh connection against Jenkins:TerraformAWS:bastion_Server mitigated by Nacl and security group ip check
 
 
@@ -488,9 +530,9 @@ resource "aws_instance" "cyber94_full_dpook_app_tf" {
 # @mitigates #bastion_server against #ssh with #ip
 
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
-  ami = "ami-0943382e114f188e8"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -501,10 +543,10 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ```
 # @mitigates #bastion_server against #ipport with #devip
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
   subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
   ami = "ami-0943382e114f188e8"
-  instance_type = "t2.micro"
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1224,7 +1266,7 @@ SSH,3306
 
 
 
-resource "aws_instance" "cyber94_full_dpook_db_tf" {
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1238,7 +1280,7 @@ SSH 3306
 
 
 
-resource "aws_instance" "cyber94_full_dpook_db_tf" {
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1251,8 +1293,8 @@ SSH_Responce
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1265,8 +1307,8 @@ SQL Responce
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_db_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_db_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1280,7 +1322,7 @@ SSH
 
 
 
-resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1294,7 +1336,7 @@ SSH
 
 
 
-resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
+
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1307,8 +1349,8 @@ SSH_Request
 
 
 
+
 resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
-  subnet_id = aws_subnet.cyber94_full_dpook_subnet_bastion_tf.id
 
 ```
 /home/kali/cyber/projects2/online_ops/terraform-full-infra/main.tf:1
@@ -1394,6 +1436,9 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Network mapping of cloud servers
 
 
+## Ip exposure
+
+
 ## Intruder ssh connection
 
 
@@ -1438,6 +1483,8 @@ resource "aws_instance" "cyber94_full_dpook_bastion_tf" {
 ## Only allow ssh connections to ubuntu user from specific ip
 
 ## Use proxy server to access all servers in vpc
+
+## Not connected to public ip address or route table
 
 ## Nacl and security group ip check
 
