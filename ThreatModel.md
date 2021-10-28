@@ -613,6 +613,20 @@ HTTPs-POST
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Login
+Running
+
+```
+# @connects #container to #login with Running
+
+
+
+
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Internet:Guest To CalcApp:Web_Server:Login
 HTTPs-POST
 
@@ -641,6 +655,20 @@ HTTPs-POST
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Accountcreation
+Running
+
+```
+# @connects #container to #ac with Running
+
+
+@flask_app.route('/addlogin', methods = ['POST'])
+def addlogin_page():
+    return render_template('addlogin.html')
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Internet:Guest To CalcApp:Web_Server:Accountcreation
 HTTPs-POST
 
@@ -664,6 +692,20 @@ HTTPs-POST
 @flask_app.route('/addlogin', methods = ['POST'])
 def addlogin_page():
     return render_template('addlogin.html')
+
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Accountcreated
+Running
+
+```
+# @connects #container to #acd with Running
+
+
+@flask_app.route('/accountcreated', methods = ['POST'])
+def accountcreated_page():
 
 
 ```
@@ -697,6 +739,20 @@ def accountcreated_page():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Authenticated
+Running
+
+```
+# @connects #container to #auth with Running
+
+
+def authenticate_users():
+    password = data['password']
+    check = sq.check_user_in_db(username,password)
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Internet:AuthenticatedUser To CalcApp:Web_Server:Authenticated
 HTTPs-POST
 
@@ -725,6 +781,20 @@ def authenticate_users():
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
 
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:Results
+Running
+
+```
+# @connects #container to #results with Running
+
+
+
+def results_users():
+    num2 = float(data['number2'])
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
 ## Internet:AuthenticatedUser To CalcApp:Web_Server:Results
 HTTPs-POST
 
@@ -749,6 +819,20 @@ def results_users():
     num2 = float(data['number2'])
     operation = request.form.get('operation')
 
+
+```
+/home/kali/cyber/projects2/online_ops/app/main.py:1
+
+## Developer_Computer:Jenkins:Dockerhub:Container To CalcApp:Web_Server:logout
+Running
+
+```
+# @connects #container to #logout with Running
+
+
+@flask_app.route('/logout', methods = ['POST','GET'])
+def logout():
+    resp = make_response(render_template('login.html'))
 
 ```
 /home/kali/cyber/projects2/online_ops/app/main.py:1
